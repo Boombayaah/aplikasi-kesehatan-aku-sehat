@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 30, 2026 at 01:53 PM
+-- Generation Time: May 30, 2026 at 02:36 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -65,11 +65,9 @@ CREATE TABLE `alur_layanan` (
 --
 
 INSERT INTO `alur_layanan` (`id_alur`, `nama_tahapan`, `deskripsi`, `dokumen`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
-(1, 'Registrasi', 'Pendaftaran antrean', NULL, '2026-05-30 01:09:31', NULL, '2026-05-30 01:09:31', NULL),
-(2, 'Pemeriksaan', 'Tindakan medis', NULL, '2026-05-30 01:09:31', NULL, '2026-05-30 01:09:31', NULL),
-(3, 'Resep', 'Pemberian obat', NULL, '2026-05-30 01:09:31', NULL, '2026-05-30 01:09:31', NULL),
-(4, 'Pembayaran', 'Proses kasir', NULL, '2026-05-30 01:09:31', NULL, '2026-05-30 01:09:31', NULL),
-(5, 'Selesai', 'Pasien pulang', NULL, '2026-05-30 01:09:31', NULL, '2026-05-30 01:09:31', NULL);
+(6, 'Buat Jadwal', 'Berikut adalah proses untuk melakukan pembuatan jadwal dengan aplikasi mobile \"AkuSehat\".', 'buat_jadwal.png', '2026-05-30 12:35:47', NULL, '2026-05-30 12:35:47', NULL),
+(7, 'Klaim Asuransi', 'Berikut adalah langkah-langkah yang dapat dilakukan pengguna untuk dapat melakukan claim asuransi.', 'klaim_asuransi.png', '2026-05-30 12:35:47', NULL, '2026-05-30 12:35:47', NULL),
+(8, 'Konsultasi', 'Berikut adalah flowchart untuk dapat melakukan konsultasi dengan dokter melalui aplikasi mobile \"AkuSehat\"', 'konsultasi.png', '2026-05-30 12:35:47', NULL, '2026-05-30 12:35:47', NULL);
 
 -- --------------------------------------------------------
 
@@ -456,7 +454,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `alur_layanan`
 --
 ALTER TABLE `alur_layanan`
-  MODIFY `id_alur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_alur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `dokter`
