@@ -133,7 +133,7 @@
                     style="@style/Title2Text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Total pasien:"
+                    android:text="Total pasien hari ini:"
                     android:textColor="@color/secondary"
                     android:textSize="15sp" />
 
@@ -331,14 +331,12 @@
                     <TableRow
                         android:background="@color/secondary">
                         <TextView android:text="No. Urut" style="@style/BodyText" android:textColor="@color/surface" android:padding="6sp"/>
-                        <TextView android:text="Keluhan" style="@style/BodyText" android:textColor="@color/surface" android:padding="6sp"/>
+                        <TextView android:text="Waktu Check-In" style="@style/BodyText" android:textColor="@color/surface" android:padding="6sp"/>
                         <TextView android:text="NIK" style="@style/BodyText" android:textColor="@color/surface" android:padding="6sp"/>
                         <TextView android:text="Nama" style="@style/BodyText" android:textColor="@color/surface" android:padding="6sp"/>
-                        <TextView android:text="Detail" style="@style/BodyText" android:textColor="@color/surface" android:padding="6sp"/>
                     </TableRow>
 
                     <TableRow>
-                        <TextView android:text="-" style="@style/BodyText" android:padding="6dp"/>
                         <TextView android:text="-" style="@style/BodyText" android:padding="6dp"/>
                         <TextView android:text="-" style="@style/BodyText" android:padding="6dp"/>
                         <TextView android:text="-" style="@style/BodyText" android:padding="6dp"/>
