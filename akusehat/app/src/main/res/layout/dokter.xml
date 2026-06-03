@@ -133,7 +133,7 @@
                     style="@style/Title2Text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Total pasien hari ini:"
+                    android:text="Telah melayani:"
                     android:textColor="@color/secondary"
                     android:textSize="15sp" />
 
@@ -157,7 +157,7 @@
                     style="@style/Title2Text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Total antrean daring:"
+                    android:text="Total antrean:"
                     android:textColor="@color/secondary"
                     android:textSize="15sp" />
 

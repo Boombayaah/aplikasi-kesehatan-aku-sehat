@@ -61,8 +61,6 @@
 
         </LinearLayout>
 
-
-
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -79,8 +77,6 @@
             android:background="@drawable/a_card_outline"
             android:orientation="vertical"
             android:padding="20dp">
-
-
 
             <TextView
                 android:id="@+id/txtTotalCost"
@@ -144,7 +140,7 @@
                 android:text="KELUHAN" />
 
             <TextView
-                android:id="@+id/txtPaymentDate"
+                android:id="@+id/txtKeluhan"
                 style="@style/BodyText"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
@@ -165,7 +161,7 @@
                 android:text="DIAGNOSA" />
 
             <TextView
-                android:id="@+id/txtPaymentDate"
+                android:id="@+id/txtDiagnosa"
                 style="@style/BodyText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -192,7 +188,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/btnChangeMethod"
+                    android:id="@+id/btnOperasi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
@@ -206,7 +202,7 @@
                     android:textSize="11sp" />
 
                 <TextView
-                    android:id="@+id/btnChangeMethod"
+                    android:id="@+id/btnObat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
@@ -220,7 +216,7 @@
                     android:textSize="11sp" />
 
                 <TextView
-                    android:id="@+id/btnChangeMethod"
+                    android:id="@+id/btnCekLab"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
@@ -242,7 +238,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/btnChangeMethod"
+                    android:id="@+id/btnImunisasi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
@@ -256,7 +252,7 @@
                     android:textSize="11sp" />
 
                 <TextView
-                    android:id="@+id/btnChangeMethod"
+                    android:id="@+id/btnRawat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
