@@ -112,7 +112,6 @@
                 android:text="TOTAL BIAYA"
                 android:textColor="@color/primary_text"
                 android:layout_gravity="center_horizontal"
-
                 android:textSize="12sp"
                 android:letterSpacing="0.08"
                 android:fontFamily="@font/lora_bold" />
@@ -121,12 +120,12 @@
                 android:id="@+id/txtTotalCost"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:text="Rp 67.000,00"
-                android:textColor="@color/primary_text"
                 android:layout_gravity="center_horizontal"
-                android:textSize="28sp"
-                android:fontFamily="@font/poppins_extrabold" />
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/poppins_extrabold"
+                android:text="Rp67.000,00"
+                android:textColor="@color/primary_text"
+                android:textSize="28sp" />
 
             <TextView
                 style="@style/Title2Text"
