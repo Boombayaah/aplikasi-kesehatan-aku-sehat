@@ -144,7 +144,7 @@
                 android:text="KELUHAN" />
 
             <TextView
-                android:id="@+id/txtPaymentDate"
+                android:id="@+id/txtKeluhan"
                 style="@style/BodyText"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
@@ -207,8 +207,6 @@
                 </TableLayout>
             </HorizontalScrollView>
 
-
-
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -231,7 +229,7 @@
                     style="@style/TitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Diagnosa & Tindakan"
+                    android:text="Diagnosa &amp; Tindakan"
                     android:textColor="@color/primary_text"
                     android:textSize="14sp"/>
             </LinearLayout>
