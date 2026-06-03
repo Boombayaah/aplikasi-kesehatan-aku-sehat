@@ -176,7 +176,7 @@
                 android:textSize="15sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TANGGAL & WAKTU" />
+                android:text="TANGGAL &amp; WAKTU" />
 
             <TextView
                 android:id="@+id/txtPaymentDate"
