@@ -87,7 +87,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
-                android:text="Riwayat Medis"
+                android:text="Diagnosa"
                 android:textColor="@color/primary_text"
                 android:layout_gravity="center_horizontal"
                 android:textSize="28sp"
@@ -346,7 +346,7 @@
                     style="@style/TitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Diagnosa & Tindakan"
+                    android:text="Selesai Konsultasi"
                     android:textColor="@color/primary_text"
                     android:textSize="14sp"/>
             </LinearLayout>
