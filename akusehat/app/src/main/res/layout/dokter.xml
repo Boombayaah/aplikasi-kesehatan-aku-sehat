@@ -33,7 +33,7 @@
                 style="@style/TitleText"
                 android:layout_width="111dp"
                 android:layout_height="30dp"
-                android:layout_marginLeft="5p"
+                android:layout_marginLeft="5dp"
                 android:text="AkuSehat"
                 android:textSize="20dp" />
 

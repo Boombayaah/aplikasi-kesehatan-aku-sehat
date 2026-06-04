@@ -33,7 +33,7 @@
                 style="@style/TitleText"
                 android:layout_width="111dp"
                 android:layout_height="30dp"
-                android:layout_marginLeft="5p"
+                android:layout_marginLeft="5dp"
                 android:text="AkuSehat"
                 android:textSize="20dp" />
 
@@ -98,12 +98,11 @@
                         android:textSize="11sp" />
 
                     <TextView
-                        android:id="@+id/txtTodayDate"
+                        android:id="@+id/tanggal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:fontFamily="@font/poppins_extrabold"
-                        android:text="Rabu, 27 Maret 2026"
                         android:textColor="@color/primary_text"
                         android:textSize="22sp" />
 
@@ -157,12 +156,12 @@
                     style="@style/Title2Text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Total antrean daring:"
+                    android:text="Total dalam antrean:"
                     android:textColor="@color/secondary"
                     android:textSize="15sp" />
 
                 <TextView
-                    android:id="@+id/txtOnlineQueue"
+                    android:id="@+id/txtQueue"
                     style="@style/Title2Text"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
@@ -237,6 +236,7 @@
                 android:layout_marginTop="12dp">
 
                 <TableLayout
+                    android:id="@+id/tblPembayaran"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:stretchColumns="*">
@@ -247,13 +247,6 @@
                         <TextView android:text="Nama" style="@style/BodyText" android:textColor="@color/surface" android:padding="6sp"/>
                         <TextView android:text="Jumlah" style="@style/BodyText" android:textColor="@color/surface" android:padding="6sp"/>
                         <TextView android:text="Detail" style="@style/BodyText" android:textColor="@color/surface" android:padding="6sp"/>
-                    </TableRow>
-
-                    <TableRow>
-                        <TextView android:text="-" style="@style/BodyText" android:padding="6dp"/>
-                        <TextView android:text="-" style="@style/BodyText" android:padding="6dp"/>
-                        <TextView android:text="-" style="@style/BodyText" android:padding="6dp"/>
-                        <TextView android:text="-" style="@style/BodyText" android:padding="6dp"/>
                     </TableRow>
 
                 </TableLayout>
@@ -324,6 +317,7 @@
                 android:layout_marginTop="12dp">
 
                 <TableLayout
+                    android:id="@+id/tblAntrean"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:stretchColumns="*">
@@ -334,13 +328,6 @@
                         <TextView android:text="Waktu Check-In" style="@style/BodyText" android:textColor="@color/surface" android:padding="6sp"/>
                         <TextView android:text="NIK" style="@style/BodyText" android:textColor="@color/surface" android:padding="6sp"/>
                         <TextView android:text="Nama" style="@style/BodyText" android:textColor="@color/surface" android:padding="6sp"/>
-                    </TableRow>
-
-                    <TableRow>
-                        <TextView android:text="-" style="@style/BodyText" android:padding="6dp"/>
-                        <TextView android:text="-" style="@style/BodyText" android:padding="6dp"/>
-                        <TextView android:text="-" style="@style/BodyText" android:padding="6dp"/>
-                        <TextView android:text="-" style="@style/BodyText" android:padding="6dp"/>
                     </TableRow>
 
                 </TableLayout>

@@ -229,6 +229,7 @@
                 android:gravity="center_vertical">
 
                 <TextView
+
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -238,7 +239,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Rp 50.000,00"
+                    android:text="Rp250000,00"
                     android:layout_marginHorizontal="15dp"
                     android:textColor="@color/primary_text"
                     android:fontFamily="@font/lora_bold"
@@ -264,16 +265,16 @@
                 android:padding="14dp">
 
                 <TextView
+                    android:id="@+id/detailObat"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Paracetamol\n1pc @ Rp 17.000,00"
                     style="@style/BodyText" />
 
                 <TextView
+                    android:id="@+id/hargaObat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Rp 17.000,00"
                     android:textColor="@color/primary_text"
                     android:fontFamily="@font/lora_bold"
                     android:textSize="14sp" />
@@ -291,14 +292,13 @@
                 android:fontFamily="@font/lora_bold" />
 
             <TextView
-                android:id="@+id/txtTotalCost"
+                android:id="@+id/totalTagihan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
-                android:text="Rp67.000,00"
+                android:fontFamily="@font/poppins_extrabold"
                 android:textColor="@color/primary_text"
-                android:textSize="28sp"
-                android:fontFamily="@font/poppins_extrabold" />
+                android:textSize="28sp" />
 
         </LinearLayout>
 
@@ -354,6 +354,7 @@
 
 <!--                </LinearLayout>-->
                 <LinearLayout
+                    android:id="@+id/cardCash"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -383,6 +384,7 @@
 
 
                 <LinearLayout
+                    android:id="@+id/cardQris"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -411,6 +413,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/cardBank"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -438,6 +441,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/cardAsuransi"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -465,6 +469,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/btnKonfirmasi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
