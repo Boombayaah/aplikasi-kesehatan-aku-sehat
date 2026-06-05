@@ -56,8 +56,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:textSize="15dp"
-                android:text="Ilham" />
+                android:textSize="15dp"/>
 
         </LinearLayout>
 
@@ -143,7 +142,7 @@
                 android:id="@+id/txtKeluhan"
                 style="@style/BodyText"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:text="Pasien datang dengan keluhan sakit kepala berdenyut sejak 3 hari yang lalu. nyeri dirasakan pada area dahi dan pelipis, terutama saat bekerja atau melihat layar dalam waktu lama." />
 
             <View
@@ -160,11 +159,15 @@
                 android:layout_height="wrap_content"
                 android:text="DIAGNOSA" />
 
-            <TextView
-                android:id="@+id/txtDiagnosa"
+            <EditText
+                android:id="@+id/inputDiagnosa"
                 style="@style/BodyText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/a_card_outline"
+                android:padding="12dp"
+                android:gravity="top"
+                android:inputType="textMultiLine"
                 android:text="Demam ringan" />
 
             <View
@@ -193,7 +196,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:layout_marginRight="5dp"
-                    android:background="@drawable/a_pill_outline"
+                    android:background="@drawable/a_card_outline"
                     android:fontFamily="@font/lora_bold"
                     android:paddingHorizontal="12dp"
                     android:paddingVertical="6dp"
@@ -207,7 +210,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:layout_marginRight="5dp"
-                    android:background="@drawable/a_pill_outline"
+                    android:background="@drawable/a_card_outline"
                     android:fontFamily="@font/lora_bold"
                     android:paddingHorizontal="12dp"
                     android:paddingVertical="6dp"
@@ -221,7 +224,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:layout_marginRight="5dp"
-                    android:background="@drawable/a_pill_outline"
+                    android:background="@drawable/a_card_outline"
                     android:fontFamily="@font/lora_bold"
                     android:paddingHorizontal="12dp"
                     android:paddingVertical="6dp"
@@ -243,7 +246,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:layout_marginRight="5dp"
-                    android:background="@drawable/a_pill_outline"
+                    android:background="@drawable/a_card_outline"
                     android:fontFamily="@font/lora_bold"
                     android:paddingHorizontal="12dp"
                     android:paddingVertical="6dp"
@@ -257,7 +260,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:layout_marginRight="5dp"
-                    android:background="@drawable/a_pill_outline"
+                    android:background="@drawable/a_card_outline"
                     android:fontFamily="@font/lora_bold"
                     android:paddingHorizontal="12dp"
                     android:paddingVertical="6dp"
@@ -300,21 +303,66 @@
                     </TableRow>
 
                     <TableRow>
-                        <TextView android:text="-" style="@style/BodyText" android:padding="6dp"/>
-                        <TextView android:text="-" style="@style/BodyText" android:padding="6dp"/>
-                        <TextView android:text="-" style="@style/BodyText" android:padding="6dp"/>
+
+                        <Spinner
+                            android:id="@+id/spinnerObat1"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content" />
+
+                        <EditText
+                            android:id="@+id/inputJumlah1"
+                            android:layout_width="70dp"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:hint="0" />
+
+                        <CheckBox
+                            android:id="@+id/checkResep1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
                     </TableRow>
 
                     <TableRow>
-                        <TextView android:text="-" style="@style/BodyText" android:padding="6dp"/>
-                        <TextView android:text="-" style="@style/BodyText" android:padding="6dp"/>
-                        <TextView android:text="-" style="@style/BodyText" android:padding="6dp"/>
+
+                        <Spinner
+                            android:id="@+id/spinnerObat2"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content" />
+
+                        <EditText
+                            android:id="@+id/inputJumlah2"
+                            android:layout_width="70dp"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:hint="0" />
+
+                        <CheckBox
+                            android:id="@+id/checkResep2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
                     </TableRow>
 
                     <TableRow>
-                        <TextView android:text="-" style="@style/BodyText" android:padding="6dp"/>
-                        <TextView android:text="-" style="@style/BodyText" android:padding="6dp"/>
-                        <TextView android:text="-" style="@style/BodyText" android:padding="6dp"/>
+
+                        <Spinner
+                            android:id="@+id/spinnerObat3"
+                            android:layout_width="160dp"
+                            android:layout_height="wrap_content" />
+
+                        <EditText
+                            android:id="@+id/inputJumlah3"
+                            android:layout_width="70dp"
+                            android:layout_height="wrap_content"
+                            android:inputType="number"
+                            android:hint="0" />
+
+                        <CheckBox
+                            android:id="@+id/checkResep3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
                     </TableRow>
 
                 </TableLayout>
@@ -327,6 +375,7 @@
                 android:background="#D8D8D8" />
 
             <LinearLayout
+                android:id="@+id/btnSelesaiKonsultasi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"

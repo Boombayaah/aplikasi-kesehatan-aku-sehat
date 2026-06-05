@@ -1,5 +1,6 @@
 package com.example.akusehat;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
@@ -14,6 +15,7 @@ import com.android.volley.toolbox.Volley;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.Toast;
 
 import com.android.volley.toolbox.JsonArrayRequest;
 import org.json.JSONArray;
@@ -23,6 +25,8 @@ import org.json.JSONObject;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+
+import android.widget.PopupMenu;
 
 public class admin_staff extends AppCompatActivity {
 
@@ -40,6 +44,7 @@ public class admin_staff extends AppCompatActivity {
         txtOnlineQueue = findViewById(R.id.txtQueue);
         tblPembayaran = findViewById(R.id.tblPembayaran);
         tblAntrean = findViewById(R.id.tblAntrean);
+        TextView profileButton = findViewById(R.id.profileButton);
         TextView tanggal = findViewById(R.id.tanggal);
 
 
@@ -49,6 +54,46 @@ public class admin_staff extends AppCompatActivity {
         ).format(new Date());
 
         tanggal.setText(currentDate);
+
+        SharedPreferences sp = getSharedPreferences("USER_SESSION", MODE_PRIVATE);
+
+        boolean isLoggedIn = sp.getBoolean("is_logged_in", false);
+        String namaLengkap = sp.getString("nama_lengkap", "");
+        String role = sp.getString("role", "");
+
+        if (!isLoggedIn) {
+            profileButton.setText("Login");
+
+            txtTotalServed.setText("0 Orang");
+            txtOnlineQueue.setText("0 Orang");
+
+            profileButton.setOnClickListener(v -> {
+                Intent intent = new Intent(admin_staff.this, login.class);
+                startActivity(intent);
+            });
+
+            return;
+        }
+
+        profileButton.setText(namaLengkap);
+
+        profileButton.setOnClickListener(v -> {
+            PopupMenu popupMenu = new PopupMenu(admin_staff.this, profileButton);
+            popupMenu.getMenu().add("Keluar");
+
+            popupMenu.setOnMenuItemClickListener(item -> {
+                SharedPreferences.Editor editor = sp.edit();
+                editor.clear();
+                editor.apply();
+
+                Intent intent = new Intent(admin_staff.this, admin_staff.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                return true;
+            });
+
+            popupMenu.show();
+        });
 
         loadPaymentTable();
         loadQueueTable();
@@ -82,6 +127,8 @@ public class admin_staff extends AppCompatActivity {
 
         queue.add(request);
     }
+
+
 
     private void loadPaymentTable() {
         String url = "http://192.168.1.5/aku_sehat/tbl_pembayaran.php";

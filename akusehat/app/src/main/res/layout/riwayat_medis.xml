@@ -56,8 +56,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:textSize="15dp"
-                android:text="Ilham" />
+                android:textSize="15dp"/>
 
         </LinearLayout>
 
@@ -147,7 +146,7 @@
                 android:id="@+id/txtKeluhan"
                 style="@style/BodyText"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:text="Pasien datang dengan keluhan sakit kepala berdenyut sejak 3 hari yang lalu. nyeri dirasakan pada area dahi dan pelipis, terutama saat bekerja atau melihat layar dalam waktu lama." />
 
             <View
@@ -171,6 +170,7 @@
                 android:layout_marginTop="5dp">
 
                 <TableLayout
+                    android:id="@+id/tblRiwayat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:stretchColumns="*">
@@ -183,27 +183,6 @@
                         <TextView android:text="Tindakan" style="@style/BodyText" android:textColor="@color/surface" android:padding="6sp"/>
                     </TableRow>
 
-                    <TableRow>
-                        <TextView android:text="-" style="@style/BodyText" android:padding="6dp"/>
-                        <TextView android:text="-" style="@style/BodyText" android:padding="6dp"/>
-                        <TextView android:text="-" style="@style/BodyText" android:padding="6dp"/>
-                        <TextView android:text="-" style="@style/BodyText" android:padding="6dp"/>
-                    </TableRow>
-
-                    <TableRow>
-                        <TextView android:text="-" style="@style/BodyText" android:padding="6dp"/>
-                        <TextView android:text="-" style="@style/BodyText" android:padding="6dp"/>
-                        <TextView android:text="-" style="@style/BodyText" android:padding="6dp"/>
-                        <TextView android:text="-" style="@style/BodyText" android:padding="6dp"/>
-                    </TableRow>
-
-                    <TableRow>
-                        <TextView android:text="-" style="@style/BodyText" android:padding="6dp"/>
-                        <TextView android:text="-" style="@style/BodyText" android:padding="6dp"/>
-                        <TextView android:text="-" style="@style/BodyText" android:padding="6dp"/>
-                        <TextView android:text="-" style="@style/BodyText" android:padding="6dp"/>
-                    </TableRow>
-
                 </TableLayout>
             </HorizontalScrollView>
 
@@ -214,6 +193,7 @@
                 android:background="#D8D8D8" />
 
             <LinearLayout
+                android:id="@+id/btnDiagnosa"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"

@@ -17,33 +17,41 @@
 
         <activity
             android:name=".admin_staff"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false" />
 
         <activity
             android:name=".pembayaran"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false" />
 
         <activity
             android:name=".info_pembayaran"
+            android:exported="false" />
+
+        <activity
+            android:name=".dokter"
+            android:exported="false" />
+
+        <activity
+            android:name=".login"
+            android:exported="false" />
+
+        <activity
+            android:name=".riwayat_medis"
+            android:exported="false" />
+
+        <activity
+            android:name=".diagnosa"
+            android:exported="false" />
+
+        <activity
+            android:name=".main_activity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>
