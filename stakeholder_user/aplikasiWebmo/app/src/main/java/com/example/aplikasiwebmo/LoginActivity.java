@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.akusehat.admin_leader;
 import com.example.aplikasiwebmo.model.LoginResponse;
 import com.example.aplikasiwebmo.network.ApiService;
 import com.example.aplikasiwebmo.network.RetrofitClient;
@@ -113,10 +115,11 @@ public class LoginActivity extends AppCompatActivity {
                                 targetActivity = dokter.class; 
                                 Toast.makeText(LoginActivity.this, "Welcome Dokter", Toast.LENGTH_SHORT).show();
                             } else if (role.equals("pasien")) {
-                                targetActivity = HomeActivity.class;
-                            } // else if (role.equals("admin_leader")) {
-                                // targetActivity = .class
-                            // }
+                                Toast.makeText(LoginActivity.this, "Selamat Datang Kembali", Toast.LENGTH_SHORT).show();
+                            } else if (role.equals("admin_leader")) {
+                                 targetActivity = admin_leader.class;
+                                Toast.makeText(LoginActivity.this, "Welcome Admin Leader", Toast.LENGTH_SHORT).show();
+                             }
                         }
 
                         Intent intent = new Intent(LoginActivity.this, targetActivity);
