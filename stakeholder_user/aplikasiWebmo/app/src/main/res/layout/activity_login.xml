@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/biru_halus">
+
+    <!-- Top Right Button -->
+    <TextView
+        android:id="@+id/btnRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:padding="16dp"
+        android:text="Register"
+        android:textColor="@color/PrimaryBlue"
+        android:textStyle="bold"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackground"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="32dp">
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/d_logo1"
+            android:layout_marginBottom="32dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login AkuSehat"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/PrimaryBlue"
+            android:layout_marginBottom="32dp"/>
+
+        <EditText
+            android:id="@+id/etLoginIdentifier"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/search_bar_bg"
+            android:paddingHorizontal="16dp"
+            android:hint="NIK"
+            android:inputType="number"
+            android:layout_marginBottom="16dp"/>
+
+        <EditText
+            android:id="@+id/etLoginPassword"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/search_bar_bg"
+            android:paddingHorizontal="16dp"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:layout_marginBottom="32dp"/>
+
+        <Button
+            android:id="@+id/btnLoginSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:textAllCaps="false"
+            android:backgroundTint="@color/PrimaryBlue"
+            android:textColor="@color/White"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

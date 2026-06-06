@@ -1,0 +1,32 @@
+<!-- Ganti blok ScrollView lama mulai dari Line 35 dengan ini -->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tvNoSchedule"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/no_schedule"
+        android:textColor="#999999"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:visibility="gone"
+        android:textStyle="bold" />
+
+    <ScrollView
+        android:id="@+id/scrollCheckinContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!-- Isi LinearLayout tetap sama, sesuaikan tombol cancel di bawah -->
+        <Button
+            android:id="@+id/btnCancelCheckin"
+            android:layout_width="300dp"
+            android:layout_height="55dp"
+            android:backgroundTint="#FF4444"
+            android:text="@string/cancel_appointment"
+            android:textColor="@color/White" />
+    </ScrollView>
+</RelativeLayout>

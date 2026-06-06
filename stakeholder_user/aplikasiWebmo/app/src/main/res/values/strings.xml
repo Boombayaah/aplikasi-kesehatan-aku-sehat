@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">aplikasi Webmo</string>
+    <string name="no_schedule">Tidak ada jadwal</string>
+    <string name="queue_arrived">Antrean anda telah tiba</string>
+    <string name="registration_success">Pendaftaran Berhasil!</string>
+    <string name="ticket_hint">Tunjukkan tiket ini saat kedatangan</string>
+    <string name="queue_number_label">NOMOR ANTREAN</string>
+    <string name="patient_name_label">Nama Pasien</string>
+    <string name="polyclinic_label">Poliklinik</string>
+    <string name="date_label">Tanggal</string>
+    <string name="current_queue_label">Antrean Saat Ini</string>
+    <string name="queue_footer_hint">Nomor antrean yang sedang dilayani saat ini.</string>
+    <string name="download_ticket">Download Tiket Antrean</string>
+    <string name="cancel_appointment">Cancel Appointment</string>
+    <string name="check_in">CheckIn</string>
+    <string name="appointment_confirmation">Appointment Confirmation</string>
+    <string name="konfirmasi_kehadiran">Konfirmasi kehadiran</string>
+    <string name="logout">LogOut</string>
+    <string name="reedim">Reedim</string>
+</resources>
