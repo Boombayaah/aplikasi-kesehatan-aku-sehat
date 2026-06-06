@@ -13,6 +13,9 @@ import com.example.aplikasiwebmo.network.RetrofitClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import com.example.akusehat.admin_staff;
+// import com.example.akusehat.admin_leader;
+import com.example.akusehat.dokter;
 
 public class LoginActivity extends AppCompatActivity {
     private SharedPreferences sharedPrefs;
@@ -88,6 +91,7 @@ public class LoginActivity extends AppCompatActivity {
                             editor.putString("user_address", res.user.alamat);
                             editor.putString("user_phone", res.user.noHp);
                             editor.putString("user_dob", res.user.tanggalLahir);
+                            editor.putString("user_role", res.user.namaKategori);
                         }
                         
                         if (res.pasien != null) {
@@ -96,8 +100,26 @@ public class LoginActivity extends AppCompatActivity {
                         }
                         
                         editor.apply();
+
+                        Class<?> targetActivity = HomeActivity.class;
                         
-                        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                        if (res.user != null && res.user.namaKategori != null) {
+                            String role = res.user.namaKategori.toLowerCase();
+                            
+                            if (role.equals("admin")) {
+                                targetActivity = admin_staff.class; 
+                                Toast.makeText(LoginActivity.this, "Welcome Admin", Toast.LENGTH_SHORT).show();
+                            } else if (role.equals("dokter")) {
+                                targetActivity = dokter.class; 
+                                Toast.makeText(LoginActivity.this, "Welcome Dokter", Toast.LENGTH_SHORT).show();
+                            } else if (role.equals("pasien")) {
+                                targetActivity = HomeActivity.class;
+                            } // else if (role.equals("admin_leader")) {
+                                // targetActivity = .class
+                            // }
+                        }
+
+                        Intent intent = new Intent(LoginActivity.this, targetActivity);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent);
                         finish();

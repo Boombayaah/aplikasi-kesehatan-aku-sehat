@@ -22,6 +22,8 @@ public class main_activity extends AppCompatActivity {
             intent = new Intent(this, admin_staff.class);
         } else if (role.contains("Dokter")) {
             intent = new Intent(this, dokter.class);
+        } else if (role.contains("Admin Leader")) {
+            intent = new Intent(this, admin_leader.class);
         } else if (role.contains("Admin")) {
             intent = new Intent(this, admin_staff.class);
         } else {

@@ -22,5 +22,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "aplikasi Webmo"
+rootProject.name = "aplikasiWebmo"
 include(":app")
+include(":akusehat")
+project(":akusehat").projectDir = file("../../stakeholder_staff/akusehat/app")

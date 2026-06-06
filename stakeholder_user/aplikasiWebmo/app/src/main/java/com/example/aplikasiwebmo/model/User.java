@@ -20,4 +20,7 @@ public class User {
     
     @SerializedName("tanggal_lahir")
     public String tanggalLahir;
+
+    @SerializedName("nama_kategori")
+    public String namaKategori;
 }
