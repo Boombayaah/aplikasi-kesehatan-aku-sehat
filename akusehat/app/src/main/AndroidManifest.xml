@@ -44,6 +44,26 @@
             android:exported="false" />
 
         <activity
+            android:name=".admin_leader"
+            android:exported="false" />
+
+        <activity
+            android:name=".tambah_staff"
+            android:exported="false" />
+
+        <activity
+            android:name=".manajemen_alur"
+            android:exported="false" />
+
+        <activity
+            android:name=".form_gambar"
+            android:exported="false" />
+
+        <activity
+            android:name=".lihat_gambar"
+            android:exported="false" />
+
+        <activity
             android:name=".main_activity"
             android:exported="true">
             <intent-filter>

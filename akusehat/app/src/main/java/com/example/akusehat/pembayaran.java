@@ -151,7 +151,7 @@ public class pembayaran extends AppCompatActivity {
     private void tagihan() {
         String idPembayaran = getIntent().getStringExtra("id_pembayaran");
 
-        String url = "http://192.168.1.5/aku_sehat/obat.php?id_pembayaran=" + idPembayaran;
+        String url = "http://192.168.1.8/aku_sehat/obat.php?id_pembayaran=" + idPembayaran;
 
         RequestQueue queue = Volley.newRequestQueue(this);
 
@@ -188,7 +188,7 @@ public class pembayaran extends AppCompatActivity {
     private void updateMetodePembayaran() {
         String idPembayaran = getIntent().getStringExtra("id_pembayaran");
 
-        String url = "http://192.168.1.5/aku_sehat/metode.php";
+        String url = "http://192.168.1.8/aku_sehat/metode.php";
 
         StringRequest request = new StringRequest(
                 Request.Method.POST,

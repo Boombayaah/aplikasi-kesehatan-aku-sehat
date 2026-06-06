@@ -103,7 +103,7 @@ public class admin_staff extends AppCompatActivity {
 
 
     private void loadDashboardCount() {
-        String url = "http://192.168.1.5/aku_sehat/dashboard_count.php";
+        String url = "http://192.168.1.8/aku_sehat/dashboard_count.php";
 
         RequestQueue queue = Volley.newRequestQueue(this);
 
@@ -131,7 +131,7 @@ public class admin_staff extends AppCompatActivity {
 
 
     private void loadPaymentTable() {
-        String url = "http://192.168.1.5/aku_sehat/tbl_pembayaran.php";
+        String url = "http://192.168.1.8/aku_sehat/tbl_pembayaran.php";
 
         RequestQueue queue = Volley.newRequestQueue(this);
 
@@ -215,7 +215,7 @@ public class admin_staff extends AppCompatActivity {
     private void loadQueueTable() {
 
         String url =
-                "http://192.168.1.5/aku_sehat/tbl_antrean.php";
+                "http://192.168.1.8/aku_sehat/tbl_antrean.php";
 
         RequestQueue queue = Volley.newRequestQueue(this);
 

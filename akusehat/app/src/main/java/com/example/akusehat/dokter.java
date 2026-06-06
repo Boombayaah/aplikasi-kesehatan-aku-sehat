@@ -29,7 +29,7 @@ public class dokter extends AppCompatActivity {
     TextView txtTotalDilayani, txtTotalAntrean;
     TableLayout tblAntrean;
 
-    String BASE_URL = "http://192.168.1.5/aku_sehat/";
+    String BASE_URL = "http://192.168.1.8/aku_sehat/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -134,7 +134,7 @@ public class dokter extends AppCompatActivity {
             return;
         }
 
-        String url = "http://192.168.1.5/aku_sehat/tbl_antrean_dokter.php?id_dokter=" + idDokter;
+        String url = "http://192.168.1.8/aku_sehat/tbl_antrean_dokter.php?id_dokter=" + idDokter;
 
         JsonArrayRequest request =
                 new JsonArrayRequest(

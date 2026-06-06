@@ -184,7 +184,7 @@ public class info_pembayaran extends AppCompatActivity {
     }
 
     private void updateMetodePembayaran() {
-        String url = "http://192.168.1.5/aku_sehat/metode.php";
+        String url = "http://192.168.1.8/aku_sehat/metode.php";
 
         StringRequest request = new StringRequest(
                 Request.Method.POST,

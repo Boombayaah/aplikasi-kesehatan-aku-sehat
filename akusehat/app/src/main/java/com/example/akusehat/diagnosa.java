@@ -60,7 +60,7 @@ public class diagnosa extends AppCompatActivity {
 
     ArrayList<Obat> listObat = new ArrayList<>();
 
-    String BASE_URL = "http://192.168.1.5/aku_sehat/";
+    String BASE_URL = "http://192.168.1.8/aku_sehat/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

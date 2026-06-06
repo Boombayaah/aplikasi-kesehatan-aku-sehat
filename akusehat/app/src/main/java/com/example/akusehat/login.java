@@ -24,7 +24,7 @@ public class login extends AppCompatActivity {
     EditText edtUsername, edtPassword;
     Button btnLogin;
 
-    String url = "http://192.168.1.5/aku_sehat/login.php";
+    String url = "http://192.168.1.8/aku_sehat/login.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +74,10 @@ public class login extends AppCompatActivity {
                             editor.putString("nama_lengkap", namaLengkap);
                             editor.putString("role", role);
 
-                            if (role.contains("Dokter")) {
+                            role = role.trim();
+
+                            if (role.equalsIgnoreCase("Dokter")) {
+
                                 int idDokter = obj.getInt("id_dokter");
                                 editor.putInt("id_dokter", idDokter);
                                 editor.apply();
@@ -84,13 +87,26 @@ public class login extends AppCompatActivity {
                                 startActivity(intent);
                                 finish();
 
-                            } else if (role.contains("Admin")) {
+                            } else if (role.equalsIgnoreCase("Admin Leader")) {
+
+                                editor.apply();
+
+                                Intent intent = new Intent(login.this, admin_leader.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                startActivity(intent);
+                                finish();
+
+                            } else if (role.equalsIgnoreCase("Admin")) {
+
                                 editor.apply();
 
                                 Intent intent = new Intent(login.this, admin_staff.class);
                                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                 startActivity(intent);
                                 finish();
+
+                            } else {
+                                Toast.makeText(this, "Role tidak dikenal: " + role, Toast.LENGTH_LONG).show();
                             }
                         }
 
