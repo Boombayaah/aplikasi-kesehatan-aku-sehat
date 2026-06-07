@@ -1,6 +1,6 @@
 package com.example.aplikasiwebmo.staff;
 
-import com.example.aplikasiwebmo.LoginActivity;
+import com.example.aplikasiwebmo.HomeActivity;
 import com.example.aplikasiwebmo.R;
 import com.example.aplikasiwebmo.network.NetworkConfig;
 
@@ -108,7 +108,7 @@ public class admin_leader extends AppCompatActivity {
             profileButton.setText("Login");
 
             profileButton.setOnClickListener(v -> {
-                Intent intent = new Intent(admin_leader.this, LoginActivity.class);
+                Intent intent = new Intent(admin_leader.this, HomeActivity.class);
                 startActivity(intent);
             });
 
@@ -126,7 +126,7 @@ public class admin_leader extends AppCompatActivity {
                 editor.clear();
                 editor.apply();
 
-                Intent intent = new Intent(admin_leader.this, LoginActivity.class);
+                Intent intent = new Intent(admin_leader.this, HomeActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
                 return true;

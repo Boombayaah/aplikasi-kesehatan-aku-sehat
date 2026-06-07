@@ -88,7 +88,7 @@ public class ProfileActivity extends AppCompatActivity {
         
         findViewById(R.id.btnLogout).setOnClickListener(v -> {
             sharedPrefs.edit().putBoolean("isLoggedIn", false).apply();
-            Intent intent = new Intent(ProfileActivity.this, LoginActivity.class);
+            Intent intent = new Intent(ProfileActivity.this, HomeActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
             finish();

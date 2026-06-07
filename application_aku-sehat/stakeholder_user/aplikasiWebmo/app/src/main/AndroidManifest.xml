@@ -33,10 +33,6 @@
             android:exported="false" />
 
         <activity
-            android:name="com.example.aplikasiwebmo.LoginActivity"
-            android:exported="false" />
-
-        <activity
             android:name="com.example.aplikasiwebmo.SettingsActivity"
             android:exported="false" />
 
@@ -84,7 +80,6 @@
         <activity android:name="com.example.aplikasiwebmo.staff.manajemen_alur" android:exported="false" />
         <activity android:name="com.example.aplikasiwebmo.staff.form_gambar" android:exported="false" />
         <activity android:name="com.example.aplikasiwebmo.staff.lihat_gambar" android:exported="false" />
-        <activity android:name="com.example.aplikasiwebmo.staff.login" android:exported="false" />
 
     </application>
 
