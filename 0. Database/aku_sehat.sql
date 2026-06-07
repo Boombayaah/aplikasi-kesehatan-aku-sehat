@@ -243,9 +243,9 @@ INSERT INTO `admin` (`id_admin`, `id_user`, `created_at`, `created_by`, `updated
 (1, 1, '2026-05-30 01:09:22', NULL, '2026-05-30 01:09:22', NULL);
 
 INSERT INTO `alur_layanan` (`id_alur`, `nama_tahapan`, `deskripsi`, `dokumen`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
-(6, 'Buat Jadwal', 'Berikut adalah proses untuk melakukan pembuatan jadwal dengan aplikasi mobile \"AkuSehat\".', 'buat_jadwal.png', '2026-05-30 12:35:47', NULL, '2026-05-30 12:35:47', NULL),
-(7, 'Klaim Asuransi', 'Berikut adalah langkah-langkah yang dapat dilakukan pengguna untuk dapat melakukan claim asuransi.', 'klaim_asuransi.png', '2026-05-30 12:35:47', NULL, '2026-05-30 12:35:47', NULL),
-(8, 'Konsultasi', 'Berikut adalah flowchart untuk dapat melakukan konsultasi dengan dokter melalui aplikasi mobile \"AkuSehat\"', 'konsultasi.png', '2026-05-30 12:35:47', NULL, '2026-05-30 12:35:47', NULL);
+(1, 'Buat Jadwal', 'Berikut adalah proses untuk melakukan pembuatan jadwal dengan aplikasi mobile \"AkuSehat\".', 'buat_jadwal.png', '2026-05-30 12:35:47', NULL, '2026-05-30 12:35:47', NULL),
+(2, 'Klaim Asuransi', 'Berikut adalah langkah-langkah yang dapat dilakukan pengguna untuk dapat melakukan claim asuransi.', 'klaim_asuransi.png', '2026-05-30 12:35:47', NULL, '2026-05-30 12:35:47', NULL),
+(3, 'Konsultasi', 'Berikut adalah flowchart untuk dapat melakukan konsultasi dengan dokter melalui aplikasi mobile \"AkuSehat\"', 'konsultasi.png', '2026-05-30 12:35:47', NULL, '2026-05-30 12:35:47', NULL);
 
 INSERT INTO `dokter` (`id_dokter`, `id_user`, `spesialisasi`, `no_izin_praktik`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
 (1, 2, 'Anak', 'SIP-001', '2026-05-30 01:09:22', NULL, '2026-05-30 01:09:22', NULL),
