@@ -227,6 +227,8 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL COMMENT 'Akan menggunakan fungsi HASHBYTES("SHA2_512","PASSWORD")',
   `tanggal_lahir` date DEFAULT NULL,
   `alamat` text DEFAULT NULL,
+  `email` varchar(255) NULL,
+  `foto_profil` varchar(255) NULL,
   `no_hp` varchar(15) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() COMMENT 'Untuk fungsi accounting (audit)',
   `created_by` varchar(100) DEFAULT NULL COMMENT 'Untuk fungsi accounting (audit)',
