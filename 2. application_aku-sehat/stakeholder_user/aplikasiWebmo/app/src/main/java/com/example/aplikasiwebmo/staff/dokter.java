@@ -52,7 +52,7 @@ public class dokter extends AppCompatActivity {
 
         boolean isLoggedIn = sp.getBoolean("isLoggedIn", false);
         String namaLengkap = sp.getString("user_name", "");
-        String role = sp.getString("role", "");
+        String role = sp.getString("user_role", "");
 
         if (!isLoggedIn) {
             profileButton.setText("Login");
@@ -101,7 +101,9 @@ public class dokter extends AppCompatActivity {
         SharedPreferences sp = getSharedPreferences("UserPrefs", MODE_PRIVATE);
         int idDokter = sp.getInt("id_dokter", -1);
 
-        if (idDokter == -1) {
+        Log.d("DOKTER_DEBUG", "loadDashboard - idDokter: " + idDokter);
+
+        if (idDokter == -1 || idDokter == 0) {
             txtTotalDilayani.setText("0 Orang");
             txtTotalAntrean.setText("0 Orang");
             return;
@@ -141,9 +143,9 @@ public class dokter extends AppCompatActivity {
 
         SharedPreferences sp = getSharedPreferences("UserPrefs", MODE_PRIVATE);
         int idDokter = sp.getInt("id_dokter", -1);
-        Toast.makeText(this, "idDokter = " + idDokter, Toast.LENGTH_LONG).show();
+        Log.d("DOKTER_DEBUG", "loadAntrean - idDokter: " + idDokter);
 
-        if (idDokter == -1) {
+        if (idDokter == -1 || idDokter == 0) {
             return;
         }
 

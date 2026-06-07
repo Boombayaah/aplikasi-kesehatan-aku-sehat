@@ -191,6 +191,7 @@ public class HomeActivity extends BaseActivity {
                                 String role = res.user.namaKategori.toLowerCase();
                                 if (role.contains("admin") || role.contains("dokter") || role.contains("leader")) {
                                     Toast.makeText(HomeActivity.this, "Selamat Datang, " + res.user.namaKategori, Toast.LENGTH_LONG).show();
+                                    checkStaffAutoRedirect();
                                 }
                             }
                         } else {
