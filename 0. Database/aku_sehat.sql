@@ -348,8 +348,8 @@ INSERT INTO `pemeriksaan` (`id_pemeriksaan`, `id_kunjungan`, `keluhan`, `diagnos
 (12, 111, NULL, NULL, NULL, NULL, '2026-06-04 12:32:19', NULL, '2026-06-04 12:32:19', NULL),
 (13, 112, NULL, NULL, NULL, NULL, '2026-06-04 13:15:13', NULL, '2026-06-04 13:15:13', NULL),
 (14, 113, 'SAKIT HATI', 'PUTUS CYNTA', NULL, NULL, '2026-06-04 13:57:02', NULL, '2026-06-04 13:57:02', NULL),
-(15, 113, 'sakit fantat', 'ambeien', 'jangan aneh2', '2026-06-04 20:37:27', '2026-06-04 15:38:04', NULL, '2026-06-04 15:38:04', NULL),
-(16, 116, 'sakit fantat2', 'ambeien', 'kurang2 in dah ', NULL, '2026-06-06 06:25:58', NULL, '2026-06-06 06:25:58', NULL),
+(15, 113, 'sakit fantat', 'SAKIT HATI', NULL, '2026-06-04 20:37:27', '2026-06-04 15:38:04', NULL, '2026-06-04 15:38:04', NULL),
+(16, 116, 'sakit fantat2', 'Pusing', NULL , NULL, '2026-06-06 06:25:58', NULL, '2026-06-06 06:25:58', NULL),
 (17, 117, 'SAKIT HATI', 'putus cinta', 'sehat2', '2026-06-06 13:34:33', '2026-06-06 06:35:06', NULL, '2026-06-06 06:35:06', NULL);
 
 INSERT INTO `resep` (`id_resep`, `id_pemeriksaan`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
