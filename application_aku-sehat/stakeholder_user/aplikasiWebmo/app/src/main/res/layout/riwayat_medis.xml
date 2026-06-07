@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- navbar -->
+        <LinearLayout
+            android:id="@+id/navbar"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="20dp"
+            android:background="@color/background">
+
+            <ImageView
+                android:id="@+id/logoButton"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:src="@drawable/c_logo"
+                android:scaleType="fitCenter"
+                android:contentDescription="logo" />
+
+            <TextView
+                android:id="@+id/akuSehat"
+                style="@style/TitleText"
+                android:layout_width="111dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="5dp"
+                android:text="AkuSehat"
+                android:textSize="20dp" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/logoProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/b_ic_profile"
+                android:layout_marginTop="1dp" />
+
+
+            <TextView
+                android:id="@+id/profileButton"
+                style="@style/BodyText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:textSize="15dp"/>
+
+        </LinearLayout>
+
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="20dp"
+            android:background="#D8D8D8" />
+
+        <LinearLayout
+            android:id="@+id/costDetailCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/a_card_outline"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+
+
+            <TextView
+                android:id="@+id/txtTotalCost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="Riwayat Medis"
+                android:textColor="@color/primary_text"
+                android:layout_gravity="center_horizontal"
+                android:textSize="28sp"
+                android:fontFamily="@font/poppins_extrabold" />
+
+            <TextView
+                style="@style/Title2Text"
+                android:layout_marginTop="20dp"
+                android:textSize="15sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NIK" />
+
+            <TextView
+                android:id="@+id/txtNik"
+                style="@style/BodyText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3201010101990001" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="#D8D8D8" />
+
+            <TextView
+                style="@style/Title2Text"
+                android:layout_marginTop="16dp"
+                android:textSize="15sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NAMA" />
+
+            <TextView
+                android:id="@+id/txtPatientName"
+                style="@style/BodyText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Budi Santoso" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="#D8D8D8" />
+
+            <TextView
+                style="@style/Title2Text"
+                android:layout_marginTop="16dp"
+                android:textSize="15sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="KELUHAN" />
+
+            <TextView
+                android:id="@+id/txtKeluhan"
+                style="@style/BodyText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pasien datang dengan keluhan sakit kepala berdenyut sejak 3 hari yang lalu. nyeri dirasakan pada area dahi dan pelipis, terutama saat bekerja atau melihat layar dalam waktu lama." />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="#D8D8D8" />
+
+            <TextView
+                style="@style/Title2Text"
+                android:layout_marginTop="16dp"
+                android:textSize="15sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RIWAYAT" />
+
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
+
+                <TableLayout
+                    android:id="@+id/tblRiwayat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:stretchColumns="*">
+
+                    <TableRow
+                        android:background="@color/secondary">
+                        <TextView android:text="Tanggal" style="@style/BodyText" android:textColor="@color/surface" android:padding="6sp"/>
+                        <TextView android:text="Keluhan" style="@style/BodyText" android:textColor="@color/surface" android:padding="6sp"/>
+                        <TextView android:text="Diagnosa" style="@style/BodyText" android:textColor="@color/surface" android:padding="6sp"/>
+                        <TextView android:text="Tindakan" style="@style/BodyText" android:textColor="@color/surface" android:padding="6sp"/>
+                    </TableRow>
+
+                </TableLayout>
+            </HorizontalScrollView>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="#D8D8D8" />
+
+            <LinearLayout
+                android:id="@+id/btnDiagnosa"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/a_pill_outline"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingHorizontal="24dp"
+                android:paddingVertical="12dp"
+                android:layout_margin="30dp">
+
+                <TextView
+                    style="@style/TitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Diagnosa &amp; Tindakan"
+                    android:textColor="@color/primary_text"
+                    android:textSize="14sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

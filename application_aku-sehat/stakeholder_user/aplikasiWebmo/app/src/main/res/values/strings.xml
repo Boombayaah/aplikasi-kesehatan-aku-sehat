@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">AkuSehat</string>
+    <string name="appointment_confirmation">Konfirmasi Pertemuan</string>
+    <string name="date_label">Tanggal:</string>
+    <string name="konfirmasi_kehadiran">Konfirmasi Kehadiran</string>
+    <string name="check_in">Check In</string>
+    <string name="registration_success">Registrasi Berhasil</string>
+    <string name="queue_number_label">Nomor Antrean Anda</string>
+    <string name="queue_arrived">Antrean Anda Sudah Tiba</string>
+    <string name="current_queue_label">Antrean Saat Ini:</string>
+    <string name="no_schedule">Tidak ada jadwal</string>
+    <string name="cancel_appointment">Batalkan Janji</string>
+</resources>
