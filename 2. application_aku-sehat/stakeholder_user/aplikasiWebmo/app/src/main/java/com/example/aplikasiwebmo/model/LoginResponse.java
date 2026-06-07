@@ -19,10 +19,10 @@ public class LoginResponse {
     public int idDokter;
 
     @SerializedName("spesialisasi")
-    public int spesialisasi;
+    public String spesialisasi;
 
     @SerializedName("no_izin_praktik")
-    public int noIzinPraktik;
+    public String noIzinPraktik;
 
     @SerializedName("id_kunjungan")
     public int idKunjungan;
@@ -41,4 +41,7 @@ public class LoginResponse {
     
     @SerializedName("pasien")
     public Pasien pasien;
+
+    @SerializedName("dokter")
+    public Dokter dokter;
 }
