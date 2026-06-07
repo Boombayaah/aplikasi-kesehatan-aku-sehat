@@ -16,9 +16,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Query JOIN untuk mendapatkan data User (termasuk nama_kategori/role) dan data Pasien
     $sql = "SELECT u.id_user, u.nama_lengkap, u.alamat, u.no_hp, u.nomor_induk_kependudukan, u.tanggal_lahir, u.nama_kategori,
-                   p.id_pasien, p.no_bpjs_asuransi, p.jenis_kelamin 
+                   p.id_pasien, p.no_bpjs_asuransi, p.jenis_kelamin, d.id_dokter, d.spesialisasi, d.no_izin_praktik
             FROM users u 
-            LEFT JOIN pasien p ON u.id_user = p.id_user 
+            LEFT JOIN pasien p ON u.id_user = p.id_user
+            LEFT JOIN dokter d ON u.id_user = d.id_user
             WHERE (u.no_hp = '$identifier' OR u.nomor_induk_kependudukan = '$identifier') 
             AND u.password = '$hashed_password' LIMIT 1";
 
@@ -32,17 +33,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             "status" => "success",
             "id_user" => (int)$row['id_user'],
             "id_pasien" => (int)$row['id_pasien'],
+            "id_dokter" => (int)$row['id_dokter'],
             "user" => [
                 "nama_lengkap" => $row['nama_lengkap'],
                 "nik" => $row['nomor_induk_kependudukan'],
                 "alamat" => $row['alamat'],
                 "no_hp" => $row['no_hp'],
                 "tanggal_lahir" => $row['tanggal_lahir'],
-                "nama_kategori" => $row['nama_kategori'] // Data penting untuk pemisah role
+                "nama_kategori" => $row['nama_kategori'] 
             ],
             "pasien" => [
                 "no_bpjs_asuransi" => $row['no_bpjs_asuransi'],
                 "jenis_kelamin" => $row['jenis_kelamin']
+            ],
+            "dokter" => [
+                "spesialisasi" => $row['spesialisasi'],
+                "no_izin_praktik" => $row['no_izin_praktik']
             ]
         ]);
     } else {

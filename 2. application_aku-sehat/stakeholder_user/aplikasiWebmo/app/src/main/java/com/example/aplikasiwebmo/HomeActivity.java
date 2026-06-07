@@ -209,8 +209,6 @@ public class HomeActivity extends BaseActivity {
         android.content.SharedPreferences.Editor editor = sharedPrefs.edit();
         editor.putBoolean("isLoggedIn", true);
         editor.putInt("currentUserId", res.idUser);
-        editor.putInt("id_pasien", res.idPasien);
-        editor.putInt("id_dokter", res.idDokter);
         if (res.user != null) {
             editor.putString("user_name", res.user.namaLengkap);
             editor.putString("user_nik", res.user.nik);
@@ -220,11 +218,15 @@ public class HomeActivity extends BaseActivity {
             editor.putString("user_role", res.user.namaKategori != null ? res.user.namaKategori : "Pasien");
         }
         if (res.pasien != null) {
+            editor.putInt("id_pasien", res.idPasien);
             editor.putString("user_bpjs", res.pasien.noBpjs);
             editor.putString("user_gender", res.pasien.jenisKelamin);
             if (res.user != null && res.user.namaKategori == null) {
                 editor.putString("user_role", "Pasien");
             }
+        }
+        if (res.dokter != null) {
+            editor.putInt("id_dokter", res.idDokter);
         }
         editor.apply();
     }
