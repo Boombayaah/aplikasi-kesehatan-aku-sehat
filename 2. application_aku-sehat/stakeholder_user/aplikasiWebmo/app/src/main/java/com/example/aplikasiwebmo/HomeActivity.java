@@ -210,6 +210,7 @@ public class HomeActivity extends BaseActivity {
         editor.putBoolean("isLoggedIn", true);
         editor.putInt("currentUserId", res.idUser);
         editor.putInt("id_pasien", res.idPasien);
+        editor.putInt("id_dokter", res.idDokter);
         if (res.user != null) {
             editor.putString("user_name", res.user.namaLengkap);
             editor.putString("user_nik", res.user.nik);

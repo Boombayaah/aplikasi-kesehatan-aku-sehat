@@ -15,6 +15,9 @@ public class LoginResponse {
     @SerializedName("id_pasien")
     public int idPasien;
 
+    @SerializedName("id_dokter")
+    public int idDokter;
+
     @SerializedName("id_kunjungan")
     public int idKunjungan;
 
