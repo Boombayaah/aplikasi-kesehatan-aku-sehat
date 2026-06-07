@@ -508,7 +508,8 @@ ALTER TABLE `resep_detail`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id_user`),
-  ADD UNIQUE KEY `nomor_induk_kependudukan` (`nomor_induk_kependudukan`,`no_hp`),
+  ADD UNIQUE KEY `nomor_induk_kependudukan` (`nomor_induk_kependudukan`),
+  ADD UNIQUE KEY `no_hp` (`no_hp`),
   ADD KEY `nama_kategori` (`nama_kategori`);
 
 --
