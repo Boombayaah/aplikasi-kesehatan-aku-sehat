@@ -253,6 +253,7 @@ INSERT INTO `dokter` (`id_dokter`, `id_user`, `spesialisasi`, `no_izin_praktik`,
 
 INSERT INTO `kategori_pengguna` (`nama_kategori`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
 ('Admin', '2026-05-30 01:09:02', NULL, '2026-05-30 01:09:02', NULL),
+('Admin Leader', '2026-05-30 01:09:02', NULL, '2026-05-30 01:09:02', NULL),
 ('Dokter', '2026-05-30 01:09:02', NULL, '2026-05-30 01:09:02', NULL),
 ('Pasien', '2026-05-30 01:09:02', NULL, '2026-05-30 01:09:02', NULL);
 
