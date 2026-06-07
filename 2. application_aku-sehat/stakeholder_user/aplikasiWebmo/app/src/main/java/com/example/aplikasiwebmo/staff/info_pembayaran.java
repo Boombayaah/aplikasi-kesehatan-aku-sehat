@@ -23,7 +23,9 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import java.text.NumberFormat;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 
@@ -176,11 +178,24 @@ public class info_pembayaran extends AppCompatActivity {
 
         selectedMetode = metode;
 
-        if (totalTagihan == null || totalTagihan.isEmpty()) {
-            totalTagihan = "Rp " + getIntent().getStringExtra("jumlah");
+        String jumlah = getIntent().getStringExtra("jumlah");
+
+        try {
+            double nominal = Double.parseDouble(jumlah);
+
+            NumberFormat format =
+                    NumberFormat.getCurrencyInstance(new Locale("id", "ID"));
+
+            format.setMinimumFractionDigits(2);
+            format.setMaximumFractionDigits(2);
+
+            totalTagihan = format.format(nominal);
+
+        } catch (Exception e) {
+            totalTagihan = "Rp0,00";
         }
 
-        txtTotalTagihan = findViewById(R.id.txtTotalTagihan);
+        txtTotalTagihan.setText(totalTagihan);
         txtTotalTagihan.setText(totalTagihan);
         txtNik.setText(nik);
         txtPatientName.setText(nama);

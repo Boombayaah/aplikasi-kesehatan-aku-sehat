@@ -18,7 +18,10 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
 import com.android.volley.toolbox.StringRequest;
+
+import java.text.NumberFormat;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import android.widget.Toast;
 
@@ -212,7 +215,25 @@ public class pembayaran extends AppCompatActivity {
                     int biayaKonsultasi = 250000;
                     int totalBiaya = biayaKonsultasi + subtotalObat;
 
-                    txtTotalTagihan.setText("Rp" + totalBiaya);
+                    String jumlah = getIntent().getStringExtra("jumlah");
+                    String totalTagihan = getIntent().getStringExtra("total_tagihan");
+
+                    try {
+                        double nominal = Double.parseDouble(jumlah);
+
+                        NumberFormat format =
+                                NumberFormat.getCurrencyInstance(new Locale("id", "ID"));
+
+                        format.setMinimumFractionDigits(2);
+                        format.setMaximumFractionDigits(2);
+
+                        totalTagihan = format.format(nominal);
+
+                    } catch (Exception e) {
+                        totalTagihan = "Rp0,00";
+                    }
+
+                    txtTotalTagihan.setText(totalTagihan);
                     txtDetailObat.setText(
                             namaObat + "\n" +
                                     jumlahObat + "pc @ Rp" + hargaObat
