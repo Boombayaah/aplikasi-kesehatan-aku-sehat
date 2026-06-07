@@ -7,6 +7,7 @@ import com.example.aplikasiwebmo.network.NetworkConfig;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -97,7 +98,7 @@ public class dokter extends AppCompatActivity {
     }
 
     private void loadDashboard() {
-        SharedPreferences sp = getSharedPreferences("USER_SESSION", MODE_PRIVATE);
+        SharedPreferences sp = getSharedPreferences("UserPrefs", MODE_PRIVATE);
         int idDokter = sp.getInt("id_dokter", -1);
 
         if (idDokter == -1) {
@@ -119,6 +120,16 @@ public class dokter extends AppCompatActivity {
                 error -> {
                     txtTotalDilayani.setText("0 Orang");
                     txtTotalAntrean.setText("0 Orang");
+
+                    Log.e("DASH_DOKTER", "URL = " + url);
+
+                    if (error.networkResponse != null) {
+                        Log.e("DASH_DOKTER", "Status = " + error.networkResponse.statusCode);
+                        Log.e("DASH_DOKTER", "Body = " + new String(error.networkResponse.data));
+                    } else {
+                        Log.e("DASH_DOKTER", "No response = " + error.toString());
+                    }
+
                     Toast.makeText(this, "gagal load dashboard", Toast.LENGTH_SHORT).show();
                 }
         );
@@ -128,8 +139,9 @@ public class dokter extends AppCompatActivity {
 
     private void loadAntrean() {
 
-        SharedPreferences sp = getSharedPreferences("USER_SESSION", MODE_PRIVATE);
+        SharedPreferences sp = getSharedPreferences("UserPrefs", MODE_PRIVATE);
         int idDokter = sp.getInt("id_dokter", -1);
+        Toast.makeText(this, "idDokter = " + idDokter, Toast.LENGTH_LONG).show();
 
         if (idDokter == -1) {
             return;
