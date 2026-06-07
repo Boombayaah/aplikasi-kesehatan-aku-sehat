@@ -1,6 +1,7 @@
 package com.example.aplikasiwebmo.staff;
 
 import com.example.aplikasiwebmo.R;
+import com.example.aplikasiwebmo.LoginActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -58,7 +59,7 @@ public class dokter extends AppCompatActivity {
             txtTotalAntrean.setText("0 Orang");
 
             profileButton.setOnClickListener(v -> {
-                Intent intent = new Intent(dokter.this, login.class);
+                Intent intent = new Intent(dokter.this, LoginActivity.class);
                 startActivity(intent);
             });
 

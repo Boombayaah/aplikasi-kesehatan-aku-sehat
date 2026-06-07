@@ -1,6 +1,7 @@
 package com.example.aplikasiwebmo.staff;
 
 import com.example.aplikasiwebmo.R;
+import com.example.aplikasiwebmo.LoginActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -75,7 +76,7 @@ public class riwayat_medis extends AppCompatActivity {
             profileButton.setText("Login");
 
             profileButton.setOnClickListener(v -> {
-                Intent intent = new Intent(riwayat_medis.this, login.class);
+                Intent intent = new Intent(riwayat_medis.this, LoginActivity.class);
                 startActivity(intent);
             });
 

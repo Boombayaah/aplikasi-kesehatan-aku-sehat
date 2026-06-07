@@ -1,6 +1,7 @@
 package com.example.aplikasiwebmo.staff;
 
 import com.example.aplikasiwebmo.R;
+import com.example.aplikasiwebmo.LoginActivity;
 
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -87,7 +88,7 @@ public class manajemen_alur extends AppCompatActivity {
             txtOnlineQueue.setText("0 Orang");
 
             profileButton.setOnClickListener(v -> {
-                Intent intent = new Intent(manajemen_alur.this, login.class);
+                Intent intent = new Intent(manajemen_alur.this, LoginActivity.class);
                 startActivity(intent);
             });
 
@@ -105,7 +106,7 @@ public class manajemen_alur extends AppCompatActivity {
                 editor.clear();
                 editor.apply();
 
-                Intent intent = new Intent(manajemen_alur.this, login.class);
+                Intent intent = new Intent(manajemen_alur.this, LoginActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
                 return true;

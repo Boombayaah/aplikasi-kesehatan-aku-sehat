@@ -1,6 +1,7 @@
 package com.example.aplikasiwebmo.staff;
 
 import com.example.aplikasiwebmo.R;
+import com.example.aplikasiwebmo.LoginActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -70,7 +71,7 @@ public class admin_staff extends AppCompatActivity {
             txtOnlineQueue.setText("0 Orang");
 
             profileButton.setOnClickListener(v -> {
-                Intent intent = new Intent(admin_staff.this, login.class);
+                Intent intent = new Intent(admin_staff.this, LoginActivity.class);
                 startActivity(intent);
             });
 
