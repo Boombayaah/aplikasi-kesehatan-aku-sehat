@@ -227,6 +227,8 @@ public class HomeActivity extends BaseActivity {
         }
         if (res.dokter != null) {
             editor.putInt("id_dokter", res.idDokter);
+            editor.putString("spesialisasi", res.spesialisasi);
+            editor.putString("noIzinPraktik", res.noIzinPraktik);
         }
         editor.apply();
     }

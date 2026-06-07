@@ -18,6 +18,12 @@ public class LoginResponse {
     @SerializedName("id_dokter")
     public int idDokter;
 
+    @SerializedName("spesialisasi")
+    public int spesialisasi;
+
+    @SerializedName("no_izin_praktik")
+    public int noIzinPraktik;
+
     @SerializedName("id_kunjungan")
     public int idKunjungan;
 
