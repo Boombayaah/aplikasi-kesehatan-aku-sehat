@@ -1,13 +1,14 @@
 package com.example.aplikasiwebmo.staff;
 
-import com.example.aplikasiwebmo.R;
 import com.example.aplikasiwebmo.LoginActivity;
+import com.example.aplikasiwebmo.R;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -96,10 +97,11 @@ public class diagnosa extends AppCompatActivity {
         checkResep2 = findViewById(R.id.checkResep2);
         checkResep3 = findViewById(R.id.checkResep3);
 
-        SharedPreferences sp = getSharedPreferences("USER_SESSION", MODE_PRIVATE);
+        SharedPreferences sp = getSharedPreferences("UserPrefs", MODE_PRIVATE);
 
-        boolean isLoggedIn = sp.getBoolean("is_logged_in", false);
-        String namaLengkap = sp.getString("nama_lengkap", "");
+        boolean isLoggedIn = sp.getBoolean("isLoggedIn", false);
+        String namaLengkap = sp.getString("user_name", "");
+        String role = sp.getString("role", "");
 
         if (!isLoggedIn) {
             profileButton.setText("Login");
@@ -111,6 +113,26 @@ public class diagnosa extends AppCompatActivity {
 
             return;
         }
+
+        profileButton.setText(namaLengkap);
+
+        profileButton.setOnClickListener(v -> {
+            PopupMenu popupMenu = new PopupMenu(diagnosa.this, profileButton);
+            popupMenu.getMenu().add("Keluar");
+
+            popupMenu.setOnMenuItemClickListener(item -> {
+                SharedPreferences.Editor editor = sp.edit();
+                editor.clear();
+                editor.apply();
+
+                Intent intent = new Intent(diagnosa.this, LoginActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                return true;
+            });
+
+            popupMenu.show();
+        });
 
         loadObatDropdown();
 

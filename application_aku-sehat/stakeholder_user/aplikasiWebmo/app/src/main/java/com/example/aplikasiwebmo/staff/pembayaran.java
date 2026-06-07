@@ -1,9 +1,12 @@
 package com.example.aplikasiwebmo.staff;
 
+import com.example.aplikasiwebmo.LoginActivity;
 import com.example.aplikasiwebmo.R;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.LinearLayout;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -50,6 +53,45 @@ public class pembayaran extends AppCompatActivity {
         cardAsuransi = findViewById(R.id.cardAsuransi);
 
         btnKonfirmasi = findViewById(R.id.btnKonfirmasi);
+
+        TextView profileButton = findViewById(R.id.profileButton);
+        SharedPreferences sp = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+
+        boolean isLoggedIn = sp.getBoolean("isLoggedIn", false);
+        String namaLengkap = sp.getString("user_name", "");
+        String role = sp.getString("role", "");
+
+        if (!isLoggedIn) {
+            profileButton.setText("Login");
+
+
+            profileButton.setOnClickListener(v -> {
+                Intent intent = new Intent(pembayaran.this, LoginActivity.class);
+                startActivity(intent);
+            });
+
+            return;
+        }
+
+        profileButton.setText(namaLengkap);
+
+        profileButton.setOnClickListener(v -> {
+            PopupMenu popupMenu = new PopupMenu(pembayaran.this, profileButton);
+            popupMenu.getMenu().add("Keluar");
+
+            popupMenu.setOnMenuItemClickListener(item -> {
+                SharedPreferences.Editor editor = sp.edit();
+                editor.clear();
+                editor.apply();
+
+                Intent intent = new Intent(pembayaran.this, LoginActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                return true;
+            });
+
+            popupMenu.show();
+        });
 
         btnKonfirmasi.setOnClickListener(v -> {
 

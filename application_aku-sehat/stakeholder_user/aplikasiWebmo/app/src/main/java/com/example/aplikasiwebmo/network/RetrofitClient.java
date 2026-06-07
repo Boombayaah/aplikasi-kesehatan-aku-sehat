@@ -11,7 +11,7 @@ public class RetrofitClient {
     private static Retrofit retrofit = null;
 
     // BASE URL disesuaikan dengan server yang digunakan
-    private static final String BASE_URL = "http://192.168.88.108/aku_sehat/";
+    private static final String BASE_URL = "http://192.168.1.8/aku_sehat/";
 
     public static Retrofit getInstance() {
         if (retrofit == null) {

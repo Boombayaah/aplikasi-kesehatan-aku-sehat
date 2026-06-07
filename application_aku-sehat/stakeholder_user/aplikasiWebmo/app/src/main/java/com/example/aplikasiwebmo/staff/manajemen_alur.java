@@ -1,7 +1,7 @@
 package com.example.aplikasiwebmo.staff;
 
-import com.example.aplikasiwebmo.R;
 import com.example.aplikasiwebmo.LoginActivity;
+import com.example.aplikasiwebmo.R;
 
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -76,16 +76,14 @@ public class manajemen_alur extends AppCompatActivity {
 
         tanggal.setText(currentDate);
 
-        SharedPreferences sp = getSharedPreferences("USER_SESSION", MODE_PRIVATE);
+        SharedPreferences sp = getSharedPreferences("UserPrefs", MODE_PRIVATE);
 
-        boolean isLoggedIn = sp.getBoolean("is_logged_in", false);
-        String namaLengkap = sp.getString("nama_lengkap", "");
+        boolean isLoggedIn = sp.getBoolean("isLoggedIn", false);
+        String namaLengkap = sp.getString("user_name", "");
+        String role = sp.getString("role", "");
 
         if (!isLoggedIn) {
             profileButton.setText("Login");
-
-            txtTotalServed.setText("0 Orang");
-            txtOnlineQueue.setText("0 Orang");
 
             profileButton.setOnClickListener(v -> {
                 Intent intent = new Intent(manajemen_alur.this, LoginActivity.class);

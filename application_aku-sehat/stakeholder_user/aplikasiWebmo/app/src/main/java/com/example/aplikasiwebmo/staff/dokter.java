@@ -1,7 +1,7 @@
 package com.example.aplikasiwebmo.staff;
 
-import com.example.aplikasiwebmo.R;
 import com.example.aplikasiwebmo.LoginActivity;
+import com.example.aplikasiwebmo.R;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -46,17 +46,14 @@ public class dokter extends AppCompatActivity {
         TextView tanggal = findViewById(R.id.tanggal);
 
 
-        SharedPreferences sp = getSharedPreferences("USER_SESSION", MODE_PRIVATE);
+        SharedPreferences sp = getSharedPreferences("UserPrefs", MODE_PRIVATE);
 
-        boolean isLoggedIn = sp.getBoolean("is_logged_in", false);
-        String namaLengkap = sp.getString("nama_lengkap", "");
+        boolean isLoggedIn = sp.getBoolean("isLoggedIn", false);
+        String namaLengkap = sp.getString("user_name", "");
         String role = sp.getString("role", "");
 
         if (!isLoggedIn) {
             profileButton.setText("Login");
-
-            txtTotalDilayani.setText("0 Orang");
-            txtTotalAntrean.setText("0 Orang");
 
             profileButton.setOnClickListener(v -> {
                 Intent intent = new Intent(dokter.this, LoginActivity.class);
@@ -77,7 +74,7 @@ public class dokter extends AppCompatActivity {
                 editor.clear();
                 editor.apply();
 
-                Intent intent = new Intent(dokter.this, dokter.class);
+                Intent intent = new Intent(dokter.this, LoginActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
                 return true;

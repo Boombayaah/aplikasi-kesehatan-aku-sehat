@@ -1,7 +1,7 @@
 package com.example.aplikasiwebmo.staff;
 
-import com.example.aplikasiwebmo.R;
 import com.example.aplikasiwebmo.LoginActivity;
+import com.example.aplikasiwebmo.R;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -47,7 +47,7 @@ public class admin_staff extends AppCompatActivity {
         txtOnlineQueue = findViewById(R.id.txtQueue);
         tblPembayaran = findViewById(R.id.tblPembayaran);
         tblAntrean = findViewById(R.id.tblAntrean);
-        TextView profileButton = findViewById(R.id.profileButton);
+
         TextView tanggal = findViewById(R.id.tanggal);
 
 
@@ -58,10 +58,11 @@ public class admin_staff extends AppCompatActivity {
 
         tanggal.setText(currentDate);
 
-        SharedPreferences sp = getSharedPreferences("USER_SESSION", MODE_PRIVATE);
+        TextView profileButton = findViewById(R.id.profileButton);
+        SharedPreferences sp = getSharedPreferences("UserPrefs", MODE_PRIVATE);
 
-        boolean isLoggedIn = sp.getBoolean("is_logged_in", false);
-        String namaLengkap = sp.getString("nama_lengkap", "");
+        boolean isLoggedIn = sp.getBoolean("isLoggedIn", false);
+        String namaLengkap = sp.getString("user_name", "");
         String role = sp.getString("role", "");
 
         if (!isLoggedIn) {
@@ -89,7 +90,7 @@ public class admin_staff extends AppCompatActivity {
                 editor.clear();
                 editor.apply();
 
-                Intent intent = new Intent(admin_staff.this, admin_staff.class);
+                Intent intent = new Intent(admin_staff.this, LoginActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
                 return true;

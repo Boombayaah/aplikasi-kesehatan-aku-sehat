@@ -1,7 +1,7 @@
 package com.example.aplikasiwebmo.staff;
 
-import com.example.aplikasiwebmo.R;
 import com.example.aplikasiwebmo.LoginActivity;
+import com.example.aplikasiwebmo.R;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -101,13 +101,10 @@ public class admin_leader extends AppCompatActivity {
 
         boolean isLoggedIn = sp.getBoolean("isLoggedIn", false);
         String namaLengkap = sp.getString("user_name", "");
-        String role = sp.getString("user_role", "");
+        String role = sp.getString("role", "");
 
         if (!isLoggedIn) {
             profileButton.setText("Login");
-
-            txtTotalServed.setText("0 Orang");
-            txtOnlineQueue.setText("0 Orang");
 
             profileButton.setOnClickListener(v -> {
                 Intent intent = new Intent(admin_leader.this, LoginActivity.class);
@@ -128,7 +125,7 @@ public class admin_leader extends AppCompatActivity {
                 editor.clear();
                 editor.apply();
 
-                Intent intent = new Intent(admin_leader.this, com.example.aplikasiwebmo.HomeActivity.class);
+                Intent intent = new Intent(admin_leader.this, LoginActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
                 return true;
