@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="320dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/menu_item_bg"
+    android:elevation="12dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Header Section -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/hero_bottom_curve"
+            android:padding="20dp">
+
+            <ImageView
+                android:id="@+id/iconReg"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@android:drawable/ic_input_add"
+                android:background="@drawable/rounded_square_bg"
+                android:padding="8dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/iconReg"
+                android:layout_marginStart="12dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Daftar Akun"
+                    android:textColor="@color/White"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Buat akun untuk mulai\nmenggunakan layanan kami"
+                    android:textColor="@color/White"
+                    android:textSize="10sp"/>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/btnCloseReg"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentEnd="true"
+                android:src="@android:drawable/ic_menu_close_clear_cancel"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Nama Lengkap" android:textStyle="bold"/>
+            <EditText android:id="@+id/etRegName" android:layout_width="match_parent" android:layout_height="50dp" android:background="@drawable/search_bar_bg" android:hint="Masukkan nama lengkap" android:paddingHorizontal="12dp" android:layout_marginBottom="12dp"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="NIK (Nomor Induk Kependudukan)" android:textStyle="bold"/>
+            <EditText android:id="@+id/etRegNIK" android:layout_width="match_parent" android:layout_height="50dp" android:background="@drawable/search_bar_bg" android:hint="16 Digit NIK" android:inputType="number" android:paddingHorizontal="12dp" android:maxLength="16" android:layout_marginBottom="12dp"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Nomor Telepon" android:textStyle="bold"/>
+            <EditText android:id="@+id/etRegPhone" android:layout_width="match_parent" android:layout_height="50dp" android:background="@drawable/search_bar_bg" android:hint="08xx xxxx xxxx" android:inputType="phone" android:paddingHorizontal="12dp" android:maxLength="13" android:layout_marginBottom="12dp"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Password" android:textStyle="bold"/>
+            <EditText android:id="@+id/etRegPass" android:layout_width="match_parent" android:layout_height="50dp" android:background="@drawable/search_bar_bg" android:hint="Minimal 8 karakter" android:inputType="textPassword" android:paddingHorizontal="12dp" android:layout_marginBottom="12dp"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Alamat (Bisa dikosongkan)" android:textStyle="bold"/>
+            <EditText android:id="@+id/etRegAddress" android:layout_width="match_parent" android:layout_height="80dp" android:background="@drawable/search_bar_bg" android:hint="Jl. Contoh No. 123" android:gravity="top" android:padding="12dp" android:inputType="textMultiLine" android:layout_marginBottom="12dp"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Konfirmasi Password" android:textStyle="bold"/>
+            <EditText android:id="@+id/etRegPassConfirm" android:layout_width="match_parent" android:layout_height="50dp" android:background="@drawable/search_bar_bg" android:hint="Ulangi password" android:inputType="textPassword" android:paddingHorizontal="12dp" android:layout_marginBottom="12dp"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Jenis Kelamin" android:textStyle="bold"/>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="16dp">
+                <CheckBox android:id="@+id/cbMale" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Pria" android:textSize="12sp"/>
+                <CheckBox android:id="@+id/cbFemale" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Wanita" android:textSize="12sp" android:layout_marginStart="16dp"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center">
+                <CheckBox android:id="@+id/cbTerms" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Terms" android:textSize="10sp"/>
+                <CheckBox android:id="@+id/cbPrivacy" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Privacy" android:textSize="10sp" android:layout_marginStart="8dp"/>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnDoRegister"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Daftar Sekarang"
+                android:textAllCaps="false"
+                android:backgroundTint="@color/PrimaryBlue"
+                android:textColor="@color/White"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp"/>
+
+            <TextView
+                android:id="@+id/tvToLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:text="Sudah punya akun? Masuk di sini"
+                android:textSize="12sp"
+                android:textColor="@color/TextSecondary"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
