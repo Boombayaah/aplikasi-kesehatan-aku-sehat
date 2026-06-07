@@ -57,6 +57,7 @@ public class info_pembayaran extends AppCompatActivity {
         btnUbahMetode = findViewById(R.id.btnUbahMetode);
         layoutOpsiMetode = findViewById(R.id.layoutOpsiMetode);
         btnKonfirmasi = findViewById(R.id.btnKonfirmasi);
+        txtTotalTagihan = findViewById(R.id.txtTotalTagihan);
 
         TextView profileButton = findViewById(R.id.profileButton);
         SharedPreferences sp = getSharedPreferences("UserPrefs", MODE_PRIVATE);
@@ -195,7 +196,6 @@ public class info_pembayaran extends AppCompatActivity {
             totalTagihan = "Rp0,00";
         }
 
-        txtTotalTagihan.setText(totalTagihan);
         txtTotalTagihan.setText(totalTagihan);
         txtNik.setText(nik);
         txtPatientName.setText(nama);
