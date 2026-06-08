@@ -16,28 +16,31 @@ $sql = "
 SELECT
     (
         SELECT COUNT(*)
-        FROM kunjungan_layanan
-        WHERE id_dokter = ?
-        AND status_kunjungan = 'Selesai'
+        FROM kunjungan_layanan kl
+        JOIN pemeriksaan pm ON kl.id_kunjungan = pm.id_kunjungan
+        WHERE kl.id_dokter = ?
+        AND pm.diagnosa IS NOT NULL
+        AND pm.diagnosa != ''
+        AND pm.catatan_dokter IS NOT NULL
+        AND pm.catatan_dokter != ''
     ) AS total_dilayani,
 
     (
         SELECT COUNT(*)
         FROM kunjungan_layanan
-        WHERE id_dokter = ?
-        AND status_kunjungan = 'Antrean'
+        WHERE status_layanan = 'Dalam Antrean'
     ) AS total_antrean
 ";
 
 $stmt = mysqli_prepare($conn, $sql);
-mysqli_stmt_bind_param($stmt, "ii", $id_dokter, $id_dokter);
+mysqli_stmt_bind_param($stmt, "i", $id_dokter);
 mysqli_stmt_execute($stmt);
 
 $result = mysqli_stmt_get_result($stmt);
 $row = mysqli_fetch_assoc($result);
 
 echo json_encode([
-    "total_dilayani" => $row["total_dilayani"],
-    "total_antrean" => $row["total_antrean"]
+    "total_dilayani" => $row["total_dilayani"] ?? 0,
+    "total_antrean" => $row["total_antrean"] ?? 0
 ]);
 ?>

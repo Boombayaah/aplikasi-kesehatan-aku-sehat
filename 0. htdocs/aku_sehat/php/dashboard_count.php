@@ -13,10 +13,18 @@ if (!$conn) {
 
 $sql = "
 SELECT
-    SUM(CASE WHEN status_layanan = 'Selesai' THEN 1 ELSE 0 END) AS total_selesai,
-    SUM(CASE WHEN status_layanan = 'Dalam Antrean' THEN 1 ELSE 0 END) AS total_antrean
-FROM kunjungan_layanan
-WHERE tanggal_kunjungan = CURDATE()
+    (
+        SELECT COUNT(*)
+        FROM kunjungan_layanan
+        WHERE status_layanan = 'Selesai'
+        AND tanggal_kunjungan = CURDATE()
+    ) AS total_selesai,
+
+    (
+        SELECT COUNT(*)
+        FROM kunjungan_layanan
+        WHERE status_layanan = 'Dalam Antrean'
+    ) AS total_antrean
 ";
 
 $result = mysqli_query($conn, $sql);

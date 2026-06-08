@@ -10,7 +10,6 @@ if ($id_kunjungan == "") {
     exit;
 }
 
-// 1. cari id_pemeriksaan berdasarkan id_kunjungan
 $queryPemeriksaan = "
     SELECT id_pemeriksaan 
     FROM pemeriksaan 
@@ -27,7 +26,6 @@ if (mysqli_num_rows($resultPemeriksaan) == 0) {
 $row = mysqli_fetch_assoc($resultPemeriksaan);
 $id_pemeriksaan = $row["id_pemeriksaan"];
 
-// 2. update pemeriksaan
 $updatePemeriksaan = "
     UPDATE pemeriksaan
     SET 
@@ -39,7 +37,6 @@ $updatePemeriksaan = "
 
 mysqli_query($conn, $updatePemeriksaan);
 
-// 3. hapus resep lama biar gak double kalau konsultasi disimpan ulang
 $getResepLama = "
     SELECT id_resep 
     FROM resep 
@@ -62,7 +59,7 @@ while ($resepLama = mysqli_fetch_assoc($resultResepLama)) {
     ");
 }
 
-// 4. cek apakah ada obat yang dipilih
+$total_tagihan = 250000;
 $adaObat = false;
 
 for ($i = 1; $i <= 3; $i++) {
@@ -72,7 +69,6 @@ for ($i = 1; $i <= 3; $i++) {
     }
 }
 
-// 5. kalau ada obat, buat resep baru
 if ($adaObat) {
     $insertResep = "
         INSERT INTO resep (id_pemeriksaan)
@@ -89,6 +85,19 @@ if ($adaObat) {
         $resep = $_POST["resep$i"] ?? "Obat umum";
 
         if ($id_obat != "" && $jumlah != "") {
+
+            $getHargaObat = "
+                SELECT harga
+                FROM obat
+                WHERE id_obat = '$id_obat'
+            ";
+
+            $resultHargaObat = mysqli_query($conn, $getHargaObat);
+            $rowHargaObat = mysqli_fetch_assoc($resultHargaObat);
+
+            $harga_obat = $rowHargaObat["harga"] ?? 0;
+            $total_tagihan += ((int)$harga_obat * (int)$jumlah);
+
             $insertDetail = "
                 INSERT INTO resep_detail 
                 (id_resep, id_obat, jumlah, instruksi_konsumsi, kerahasiaan)
@@ -101,14 +110,43 @@ if ($adaObat) {
     }
 }
 
-// 6. update status layanan jadi selesai
 $updateKunjungan = "
     UPDATE kunjungan_layanan
-    SET status_layanan = 'Selesai'
+    SET status_layanan = 'Dalam Antrean'
     WHERE id_kunjungan = '$id_kunjungan'
 ";
 
 mysqli_query($conn, $updateKunjungan);
+
+$cekPembayaran = "
+    SELECT id_pembayaran
+    FROM pembayaran
+    WHERE id_kunjungan = '$id_kunjungan'
+";
+
+$resultPembayaran = mysqli_query($conn, $cekPembayaran);
+
+if (mysqli_num_rows($resultPembayaran) == 0) {
+    $insertPembayaran = "
+        INSERT INTO pembayaran
+        (id_kunjungan, id_admin, total_tagihan, metode_pembayaran, status_pembayaran)
+        VALUES
+        ('$id_kunjungan', 1, '$total_tagihan', NULL, 'Belum bayar')
+    ";
+
+    mysqli_query($conn, $insertPembayaran);
+} else {
+    $updatePembayaran = "
+        UPDATE pembayaran
+        SET 
+            total_tagihan = '$total_tagihan',
+            metode_pembayaran = 'NULL',
+            status_pembayaran = 'Belum bayar'
+        WHERE id_kunjungan = '$id_kunjungan'
+    ";
+
+    mysqli_query($conn, $updatePembayaran);
+}
 
 echo "success";
 ?>

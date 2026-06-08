@@ -17,18 +17,18 @@ JOIN pasien ps
     ON k.id_pasien = ps.id_pasien
 JOIN users u
     ON ps.id_user = u.id_user
+WHERE p.metode_pembayaran IS NULL
+AND k.status_layanan != 'Selesai'
 ORDER BY p.waktu_bayar DESC
-LIMIT 5
 ";
 
 $result = mysqli_query($conn, $sql);
 
 $data = array();
 
-while($row = mysqli_fetch_assoc($result)){
+while ($row = mysqli_fetch_assoc($result)) {
     $data[] = $row;
 }
-
 
 echo json_encode($data);
 ?>

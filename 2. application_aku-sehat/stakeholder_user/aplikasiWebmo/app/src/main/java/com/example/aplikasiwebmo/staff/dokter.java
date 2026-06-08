@@ -37,6 +37,23 @@ public class dokter extends AppCompatActivity {
     String BASE_URL = NetworkConfig.BASE_URL;
 
     @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (tblAntrean != null) {
+            int childCount = tblAntrean.getChildCount();
+
+            // kalau row pertama adalah header, sisakan header
+            if (childCount > 1) {
+                tblAntrean.removeViews(1, childCount - 1);
+            }
+        }
+
+        loadDashboard();
+        loadAntrean();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dokter);
@@ -93,8 +110,6 @@ public class dokter extends AppCompatActivity {
 
         tanggal.setText(currentDate);
 
-        loadDashboard();
-        loadAntrean();
     }
 
     private void loadDashboard() {

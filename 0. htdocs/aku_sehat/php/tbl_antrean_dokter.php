@@ -22,6 +22,10 @@ JOIN pasien p ON kl.id_pasien = p.id_pasien
 JOIN users u ON p.id_user = u.id_user
 WHERE kl.id_dokter = ?
 AND kl.status_layanan = 'Dalam Antrean'
+AND (
+    pm.diagnosa IS NULL OR pm.diagnosa = ''
+    OR pm.catatan_dokter IS NULL OR pm.catatan_dokter = ''
+)
 ORDER BY kl.nomor_antrean ASC
 ";
 

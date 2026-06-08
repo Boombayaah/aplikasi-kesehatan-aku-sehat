@@ -218,22 +218,13 @@ public class pembayaran extends AppCompatActivity {
                     String jumlah = getIntent().getStringExtra("jumlah");
                     String totalTagihan = getIntent().getStringExtra("total_tagihan");
 
-                    try {
-                        double nominal = Double.parseDouble(jumlah);
+                    NumberFormat format =
+                            NumberFormat.getCurrencyInstance(new Locale("id", "ID"));
 
-                        NumberFormat format =
-                                NumberFormat.getCurrencyInstance(new Locale("id", "ID"));
+                    format.setMinimumFractionDigits(2);
+                    format.setMaximumFractionDigits(2);
 
-                        format.setMinimumFractionDigits(2);
-                        format.setMaximumFractionDigits(2);
-
-                        totalTagihan = format.format(nominal);
-
-                    } catch (Exception e) {
-                        totalTagihan = "Rp0,00";
-                    }
-
-                    txtTotalTagihan.setText(totalTagihan);
+                    txtTotalTagihan.setText(format.format(totalBiaya));
                     txtDetailObat.setText(
                             namaObat + "\n" +
                                     jumlahObat + "pc @ Rp" + hargaObat
