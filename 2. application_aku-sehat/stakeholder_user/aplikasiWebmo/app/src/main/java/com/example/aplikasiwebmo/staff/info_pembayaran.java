@@ -1,0 +1,280 @@
+package com.example.aplikasiwebmo.staff;
+
+import com.example.aplikasiwebmo.HomeActivity;
+import com.example.aplikasiwebmo.R;
+import com.example.aplikasiwebmo.network.NetworkConfig;
+
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.PopupMenu;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import java.text.NumberFormat;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
+
+
+
+public class info_pembayaran extends AppCompatActivity {
+
+    TextView txtNik, txtPatientName, txtPaymentDate, txtPaymentMethod, txtTotalTagihan;
+
+
+    String selectedMetode = "";
+    String idPembayaran = "";
+
+    ImageView imgPaymentMethod;
+    LinearLayout btnUbahMetode, layoutOpsiMetode, btnKonfirmasi;
+    LinearLayout cardCash, cardQris, cardBank, cardAsuransi;
+    String metodeAwal;
+    boolean metodeDiubah = false;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.info_pembayaran);
+
+        txtNik = findViewById(R.id.txtNik);
+        txtPatientName = findViewById(R.id.txtPatientName);
+        txtPaymentDate = findViewById(R.id.txtPaymentDate);
+        txtPaymentMethod = findViewById(R.id.txtPaymentMethod);
+        imgPaymentMethod = findViewById(R.id.imgPaymentMethod);
+        btnUbahMetode = findViewById(R.id.btnUbahMetode);
+        layoutOpsiMetode = findViewById(R.id.layoutOpsiMetode);
+        btnKonfirmasi = findViewById(R.id.btnKonfirmasi);
+        txtTotalTagihan = findViewById(R.id.txtTotalTagihan);
+
+        TextView profileButton = findViewById(R.id.profileButton);
+        SharedPreferences sp = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+
+        boolean isLoggedIn = sp.getBoolean("isLoggedIn", false);
+        String namaLengkap = sp.getString("user_name", "");
+        String role = sp.getString("role", "");
+
+        if (!isLoggedIn) {
+            profileButton.setText("Login");
+
+            profileButton.setOnClickListener(v -> {
+                Intent intent = new Intent(info_pembayaran.this, HomeActivity.class);
+                startActivity(intent);
+            });
+
+            return;
+        }
+
+        profileButton.setText(namaLengkap);
+
+        profileButton.setOnClickListener(v -> {
+            PopupMenu popupMenu = new PopupMenu(info_pembayaran.this, profileButton);
+            popupMenu.getMenu().add("Keluar");
+
+            popupMenu.setOnMenuItemClickListener(item -> {
+                SharedPreferences.Editor editor = sp.edit();
+                editor.clear();
+                editor.apply();
+
+                Intent intent = new Intent(info_pembayaran.this, HomeActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                return true;
+            });
+
+            popupMenu.show();
+        });
+
+        btnKonfirmasi.setOnClickListener(v -> {
+
+            if (!metodeDiubah) {
+                Intent intent = new Intent(info_pembayaran.this, admin_staff.class);
+                startActivity(intent);
+                finish();
+                return;
+            }
+
+            updateMetodePembayaran();
+        });
+
+        cardCash = findViewById(R.id.cardCash);
+        cardQris = findViewById(R.id.cardQris);
+        cardBank = findViewById(R.id.cardBank);
+        cardAsuransi = findViewById(R.id.cardAsuransi);
+
+        metodeAwal = getIntent().getStringExtra("metode_pembayaran");
+        selectedMetode = metodeAwal;
+
+        btnUbahMetode.setOnClickListener(v -> {
+
+            if (layoutOpsiMetode.getVisibility() == View.VISIBLE) {
+                layoutOpsiMetode.setVisibility(View.GONE);
+            } else {
+                layoutOpsiMetode.setVisibility(View.VISIBLE);
+            }
+
+        });
+
+        cardCash.setOnClickListener(v -> {
+            selectedMetode = "Tunai";
+            metodeDiubah = true;
+
+            txtPaymentMethod.setText(selectedMetode);
+
+            resetCards();
+            cardCash.setBackgroundResource(R.drawable.a_card_selected);
+        });
+
+        cardQris.setOnClickListener(v -> {
+            selectedMetode = "QRIS";
+            metodeDiubah = true;
+
+            txtPaymentMethod.setText(selectedMetode);
+
+            resetCards();
+            cardQris.setBackgroundResource(R.drawable.a_card_selected);
+        });
+
+        cardBank.setOnClickListener(v -> {
+            selectedMetode = "Transfer Bank";
+            metodeDiubah = true;
+
+            txtPaymentMethod.setText(selectedMetode);
+
+            resetCards();
+            cardBank.setBackgroundResource(R.drawable.a_card_selected);
+        });
+
+        cardAsuransi.setOnClickListener(v -> {
+            selectedMetode = "Asuransi";
+            metodeDiubah = true;
+
+            txtPaymentMethod.setText(selectedMetode);
+
+            resetCards();
+            cardAsuransi.setBackgroundResource(R.drawable.a_card_selected);
+        });
+
+
+
+        idPembayaran = getIntent().getStringExtra("id_pembayaran");
+        String nik = getIntent().getStringExtra("nik");
+        String nama = getIntent().getStringExtra("nama");
+        String tanggal = getIntent().getStringExtra("tanggal");
+        String waktu = getIntent().getStringExtra("waktu");
+        String metode = getIntent().getStringExtra("metode_pembayaran");
+        String totalTagihan = getIntent().getStringExtra("total_tagihan");
+
+        selectedMetode = metode;
+
+        String jumlah = getIntent().getStringExtra("jumlah");
+
+        try {
+            double nominal = Double.parseDouble(jumlah);
+
+            NumberFormat format =
+                    NumberFormat.getCurrencyInstance(new Locale("id", "ID"));
+
+            format.setMinimumFractionDigits(2);
+            format.setMaximumFractionDigits(2);
+
+            totalTagihan = format.format(nominal);
+
+        } catch (Exception e) {
+            totalTagihan = "Rp0,00";
+        }
+
+        txtTotalTagihan.setText(totalTagihan);
+        txtNik.setText(nik);
+        txtPatientName.setText(nama);
+        txtPaymentDate.setText(tanggal + ", " + waktu + " WIB");
+        txtPaymentMethod.setText(metode);
+        txtPaymentMethod.setText(metode);
+
+        switch (metode) {
+
+            case "Tunai":
+                imgPaymentMethod.setImageResource(
+                        R.drawable.b_ic_payment
+                );
+                break;
+
+            case "QRIS":
+                imgPaymentMethod.setImageResource(
+                        R.drawable.b_ic_qris
+                );
+                break;
+
+            case "Transfer Bank":
+                imgPaymentMethod.setImageResource(
+                        R.drawable.b_ic_bank
+                );
+                break;
+
+            case "Asuransi":
+                imgPaymentMethod.setImageResource(
+                        R.drawable.b_ic_bank
+                );
+                break;
+        }
+
+
+
+
+    }
+
+    private void resetCards() {
+        cardCash.setBackgroundResource(R.drawable.a_card_outline);
+        cardQris.setBackgroundResource(R.drawable.a_card_outline);
+        cardBank.setBackgroundResource(R.drawable.a_card_outline);
+        cardAsuransi.setBackgroundResource(R.drawable.a_card_outline);
+    }
+
+    private void updateMetodePembayaran() {
+        String url = NetworkConfig.BASE_URL + "metode.php";
+
+        StringRequest request = new StringRequest(
+                Request.Method.POST,
+                url,
+                response -> {
+                    Toast.makeText(this, "Metode pembayaran diperbarui", Toast.LENGTH_SHORT).show();
+
+                    Intent intent = new Intent(info_pembayaran.this, admin_staff.class);
+                    startActivity(intent);
+                    finish();
+                },
+                error -> {
+                    Toast.makeText(
+                            info_pembayaran.this,
+                            "gagal update metode pembayaran",
+                            Toast.LENGTH_SHORT
+                    ).show();
+
+                    error.printStackTrace();
+                }
+        ) {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<>();
+                params.put("id_pembayaran", idPembayaran);
+                params.put("metode_pembayaran", selectedMetode);
+                return params;
+            }
+        };
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(request);
+    }
+}

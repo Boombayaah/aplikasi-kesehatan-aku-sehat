@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- navbar -->
+        <LinearLayout
+            android:id="@+id/navbar"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="20dp"
+            android:background="@color/background">
+
+            <ImageView
+                android:id="@+id/logoButton"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:src="@drawable/c_logo"
+                android:scaleType="fitCenter"
+                android:contentDescription="logo" />
+
+            <TextView
+                android:id="@+id/akuSehat"
+                style="@style/TitleText"
+                android:layout_width="111dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="5dp"
+                android:text="AkuSehat"
+                android:textSize="20dp" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/logoProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/b_ic_profile"
+                android:layout_marginTop="1dp" />
+
+
+            <TextView
+                android:id="@+id/profileButton"
+                style="@style/BodyText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:textSize="15dp"/>
+
+        </LinearLayout>
+
+        <!--pembayaran-->
+        <LinearLayout
+            android:id="@+id/paymentNavbar"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="20dp"
+            android:background="@color/background">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/b_ic_menu_grid"
+                app:tint="@color/secondary" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="20dp"
+                android:text="Pembayaran"
+                android:textSize="24sp"
+                android:fontFamily="@font/poppins_extrabold"
+                android:textColor="@color/primary_text" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="20dp"
+            android:background="#D8D8D8" />
+
+        <LinearLayout
+            android:id="@+id/costDetailCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/a_card_outline"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TOTAL BIAYA"
+                android:textColor="@color/primary_text"
+                android:layout_gravity="center_horizontal"
+                android:textSize="12sp"
+                android:letterSpacing="0.08"
+                android:fontFamily="@font/lora_bold" />
+
+            <TextView
+                android:id="@+id/txtTotalTagihan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/poppins_extrabold"
+                android:text="Rp67.000,00"
+                android:textColor="@color/primary_text"
+                android:textSize="28sp" />
+
+            <TextView
+                style="@style/Title2Text"
+                android:layout_marginTop="20dp"
+                android:textSize="15sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NIK" />
+
+            <TextView
+                android:id="@+id/txtNik"
+                style="@style/BodyText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3201010101990001" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="#D8D8D8" />
+
+            <TextView
+                style="@style/Title2Text"
+                android:layout_marginTop="16dp"
+                android:textSize="15sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NAMA" />
+
+            <TextView
+                android:id="@+id/txtPatientName"
+                style="@style/BodyText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Budi Santoso" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="#D8D8D8" />
+
+            <TextView
+                style="@style/Title2Text"
+                android:layout_marginTop="16dp"
+                android:textSize="15sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TANGGAL &amp; WAKTU" />
+
+            <TextView
+                android:id="@+id/txtPaymentDate"
+                style="@style/BodyText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="24 Mei 2024, 09:45 WIB" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="#D8D8D8" />
+
+            <TextView
+                style="@style/Title2Text"
+                android:layout_marginTop="16dp"
+                android:textSize="15sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="METODE PEMBAYARAN" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- metode yang sedang dipakai -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/imgPaymentMethod"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@drawable/b_ic_qris"
+                        app:tint="@color/secondary" />
+
+                    <TextView
+                        android:id="@+id/txtPaymentMethod"
+                        style="@style/BodyText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:text="QRIS" />
+
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="1" />
+
+                    <LinearLayout
+                        android:id="@+id/btnUbahMetode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/a_pill_outline"
+                        android:gravity="center"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="6dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/lora_bold"
+                            android:text="Ubah Metode"
+                            android:textColor="@color/secondary"
+                            android:textSize="11sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- opsi metode, muncul setelah klik ubah metode -->
+                <LinearLayout
+                    android:id="@+id/layoutOpsiMetode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <!-- row 1 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:id="@+id/cardCash"
+                            android:layout_width="0dp"
+                            android:layout_height="44dp"
+                            android:layout_marginEnd="6dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/a_card_outline"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:layout_marginEnd="8dp"
+                                android:src="@drawable/b_ic_payment"
+                                app:tint="@color/secondary" />
+
+                            <TextView
+                                style="@style/BodyText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Tunai" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/cardQris"
+                            android:layout_width="0dp"
+                            android:layout_height="44dp"
+                            android:layout_marginStart="6dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/a_card_outline"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:layout_marginEnd="8dp"
+                                android:src="@drawable/b_ic_qris"
+                                app:tint="@color/secondary" />
+
+                            <TextView
+                                style="@style/BodyText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="QRIS" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- row 2 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:id="@+id/cardBank"
+                            android:layout_width="0dp"
+                            android:layout_height="44dp"
+                            android:layout_marginEnd="6dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/a_card_outline"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:layout_marginEnd="8dp"
+                                android:src="@drawable/b_ic_bank"
+                                app:tint="@color/secondary" />
+
+                            <TextView
+                                style="@style/BodyText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Transfer Bank" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/cardAsuransi"
+                            android:layout_width="0dp"
+                            android:layout_height="44dp"
+                            android:layout_marginStart="6dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/a_card_outline"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:layout_marginEnd="8dp"
+                                android:src="@drawable/b_ic_bank"
+                                app:tint="@color/secondary" />
+
+                            <TextView
+                                style="@style/BodyText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Asuransi" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="#D8D8D8" />
+
+            <LinearLayout
+                android:id="@+id/btnKonfirmasi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/a_pill_outline"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingHorizontal="24dp"
+                android:paddingVertical="12dp"
+                android:layout_margin="30dp">
+
+                <TextView
+                    style="@style/TitleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Konfirmasi Pembayaran"
+                    android:textColor="@color/primary_text"
+                    android:textSize="14sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

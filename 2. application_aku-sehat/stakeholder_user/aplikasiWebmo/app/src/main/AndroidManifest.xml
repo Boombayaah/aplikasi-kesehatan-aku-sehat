@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="AkuSehat"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        android:usesCleartextTraffic="true"
+        tools:replace="android:label,android:theme,android:allowBackup,android:dataExtractionRules,android:fullBackupContent,android:icon,android:roundIcon,android:supportsRtl,android:usesCleartextTraffic"
+        tools:targetApi="34">
+
+        <activity
+            android:name="com.example.aplikasiwebmo.SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.example.aplikasiwebmo.HomeActivity"
+            android:exported="false" />
+
+        <activity
+            android:name="com.example.aplikasiwebmo.SettingsActivity"
+            android:exported="false" />
+
+        <activity
+            android:name="com.example.aplikasiwebmo.ProfileActivity"
+            android:exported="false" />
+
+        <activity
+            android:name="com.example.aplikasiwebmo.ScheduleActivity"
+            android:exported="false" />
+
+        <activity
+            android:name="com.example.aplikasiwebmo.CheckinActivity"
+            android:exported="false" />
+
+        <activity
+            android:name="com.example.aplikasiwebmo.QueueStatusActivity"
+            android:exported="false" />
+
+        <activity
+            android:name="com.example.aplikasiwebmo.MedicalHistoryActivity"
+            android:exported="false" />
+
+        <activity
+            android:name="com.example.aplikasiwebmo.MedicalRecordDetailActivity"
+            android:exported="false" />
+
+        <activity
+            android:name="com.example.aplikasiwebmo.MedicalBillingActivity"
+            android:exported="false" />
+
+        <activity
+            android:name="com.example.aplikasiwebmo.KlinikFlowActivity"
+            android:exported="false" />
+
+        <!-- Staff Activities -->
+        <activity android:name="com.example.aplikasiwebmo.staff.admin_staff" android:exported="false" />
+        <activity android:name="com.example.aplikasiwebmo.staff.pembayaran" android:exported="false" />
+        <activity android:name="com.example.aplikasiwebmo.staff.info_pembayaran" android:exported="false" />
+        <activity android:name="com.example.aplikasiwebmo.staff.dokter" android:exported="false" />
+        <activity android:name="com.example.aplikasiwebmo.staff.riwayat_medis" android:exported="false" />
+        <activity android:name="com.example.aplikasiwebmo.staff.diagnosa" android:exported="false" />
+        <activity android:name="com.example.aplikasiwebmo.staff.admin_leader" android:exported="false" />
+        <activity android:name="com.example.aplikasiwebmo.staff.tambah_staff" android:exported="false" />
+        <activity android:name="com.example.aplikasiwebmo.staff.manajemen_alur" android:exported="false" />
+        <activity android:name="com.example.aplikasiwebmo.staff.form_gambar" android:exported="false" />
+        <activity android:name="com.example.aplikasiwebmo.staff.lihat_gambar" android:exported="false" />
+
+    </application>
+
+</manifest>

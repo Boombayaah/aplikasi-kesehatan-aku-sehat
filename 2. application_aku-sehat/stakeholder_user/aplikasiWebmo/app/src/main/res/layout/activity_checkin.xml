@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F7F9">
+
+    <!-- Global Navbar -->
+    <include
+        android:id="@+id/navbar"
+        layout="@layout/layout_navbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
+
+    <ScrollView
+        android:id="@+id/scrollCheckinContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/navbar"
+        android:layout_above="@id/globalFooter"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/appointment_confirmation"
+                android:textColor="@color/Black"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:layout_marginBottom="32dp"/>
+
+            <!-- IDs added for Java compat but kept hidden or integrated -->
+            <ImageView android:id="@+id/btnCheckinBack" android:layout_width="0dp" android:layout_height="0dp" android:visibility="gone"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_square_bg"
+                android:backgroundTint="@color/White"
+                android:elevation="4dp"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp">
+                    <ImageView
+                        android:id="@+id/iconDate"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@android:drawable/ic_menu_my_calendar"
+                        app:tint="#999999"
+                        android:contentDescription="Date Icon"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/iconDate"
+                        android:layout_marginStart="16dp"
+                        android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/date_label" android:textColor="#999999" android:textSize="12sp"/>
+                        <TextView android:id="@+id/tvCheckinDate" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="-" android:textColor="@color/Black" android:textStyle="bold"/>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F0F0F0" android:layout_marginBottom="16dp"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp">
+                    <ImageView
+                        android:id="@+id/iconTime"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@android:drawable/ic_menu_recent_history"
+                        app:tint="#999999"
+                        android:contentDescription="Time Icon"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/iconTime"
+                        android:layout_marginStart="16dp"
+                        android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Waktu Kunjungan" android:textColor="#999999" android:textSize="12sp"/>
+                        <TextView android:id="@+id/tvCheckinTime" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="-" android:textColor="@color/Black" android:textStyle="bold"/>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F0F0F0" android:layout_marginBottom="16dp"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/iconDoctor"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@android:drawable/ic_menu_edit"
+                        app:tint="#999999"
+                        android:contentDescription="Doctor Icon"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/iconDoctor"
+                        android:layout_marginStart="16dp"
+                        android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Dokter Pemeriksa" android:textColor="#999999" android:textSize="12sp"/>
+                        <TextView android:id="@+id/tvCheckinDoctor" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="-" android:textColor="@color/Black" android:textStyle="bold"/>
+                    </LinearLayout>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <!-- Upload Container -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/rounded_square_bg"
+                android:backgroundTint="@color/White"
+                android:elevation="4dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="32dp">
+
+                <ImageView
+                    android:id="@+id/ivCheckinPreview"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@android:drawable/ic_menu_upload"
+                    app:tint="@color/PrimaryBlue"
+                    android:contentDescription="Upload Preview"/>
+
+                <TextView
+                    android:id="@+id/tvUploadHint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Upload &amp; Ambil Foto"
+                    android:textColor="@color/PrimaryBlue"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Kartu Identitas / Bukti Pendaftaran"
+                    android:textColor="#999999"
+                    android:textSize="10sp"/>
+
+                <Button
+                    android:id="@+id/btnCheckinUpload"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="Pilih Dokumen"
+                    android:textAllCaps="false"
+                    android:backgroundTint="#F0F4F8"
+                    android:textColor="@color/PrimaryBlue"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"/>
+
+                <ImageView
+                    android:id="@+id/ivCheckinSuccessIcon"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/d_checklist"
+                    android:visibility="gone"
+                    android:contentDescription="Checkmark"/>
+
+                <TextView
+                    android:id="@+id/tvCheckinStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textColor="#2ECC71"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnCheckinSubmit"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginTop="32dp"
+                android:text="@string/konfirmasi_kehadiran"
+                android:textAllCaps="false"
+                android:backgroundTint="@color/PrimaryBlue"
+                android:textColor="@color/Black"
+                android:textStyle="bold"
+                android:visibility="gone"
+                style="@style/Widget.MaterialComponents.Button"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Empty State -->
+    <LinearLayout
+        android:id="@+id/llCheckinEmptyState"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/navbar"
+        android:layout_above="@id/globalFooter"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="24dp">
+        <TextView
+            android:id="@+id/tvNoScheduleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Belum ada jadwal yang perlu Check-in"
+            android:textColor="#CCCCCC"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center"/>
+    </LinearLayout>
+
+    <!-- Global Footer -->
+    <include
+        android:id="@+id/globalFooter"
+        layout="@layout/layout_footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" />
+
+</RelativeLayout>
